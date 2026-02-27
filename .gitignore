@@ -29,5 +29,4 @@ dist/
 # plasmo
 .plasmo
 
-# typescript
-*.tsbuildinfo
+
