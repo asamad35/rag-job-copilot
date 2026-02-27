@@ -1,25 +1,38 @@
 {
   "name": "rag-job-copilot",
-  "version": "1.0.0",
-  "description": "Chrome extension V1 form scanner and test autofill",
-  "private": true,
-  "type": "module",
+  "displayName": "Rag job copilot",
+  "version": "0.0.1",
+  "description": "RAG job copilot Chrome extension.",
+  "author": "Caw D",
   "scripts": {
-    "dev": "vite build --watch",
-    "build": "vite build && cp manifest.json dist/manifest.json && cp dist/src/popup/popup.html dist/popup.html && rm -rf dist/src",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest run",
-    "test:watch": "vitest"
+    "dev": "plasmo dev",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "plasmo build",
+    "package": "plasmo package"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "plasmo": "0.90.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
   "devDependencies": {
-    "@types/chrome": "^0.1.37",
-    "@types/node": "^25.3.1",
-    "jsdom": "^28.1.0",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1",
-    "vitest": "^4.0.18"
+    "@ianvs/prettier-plugin-sort-imports": "4.1.1",
+    "@types/chrome": "0.0.258",
+    "@types/node": "20.11.5",
+    "@types/react": "18.2.48",
+    "@types/react-dom": "18.2.18",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.6",
+    "prettier": "3.2.4",
+    "tailwindcss": "^3.4.17",
+    "typescript": "5.3.3"
+  },
+  "manifest": {
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "host_permissions": [
+      "https://*/*"
+    ]
   }
 }

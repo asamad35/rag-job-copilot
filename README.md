@@ -1,74 +1,33 @@
-# Autofill V1 Chrome Extension
+This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
 
-V1 Chrome Extension (Manifest V3) that detects fillable form controls and fills them with deterministic test values when you click **Fill with test** in the popup.
+## Getting Started
 
-## Features
-- Detects fillable controls on page load and SPA-style DOM updates.
-- Popup shows detected field count.
-- One-click fill with deterministic values:
-  - Text-like fields -> `test`
-  - `number` -> `1`
-  - `date` -> `2026-01-01`
-  - `datetime-local` -> `2026-01-01T10:00`
-  - `month` -> `2026-01`
-  - `time` -> `10:00`
-  - `week` -> `2026-W01`
-  - `color` -> `#000000`
-  - `range` -> midpoint or `50`
-  - `checkbox` -> checked
-  - `radio` -> first enabled visible in group
-  - `select` -> first enabled non-placeholder option
-  - `contenteditable` / `role=textbox` -> `test`
-- Dispatches `input` and `change` events to support React/Vue/Angular forms.
-- Logs to console with `[autofill-v1]` prefix.
+First, run the development server:
 
-## Prerequisites
-- Node.js 20+ (tested on Node 22)
-- npm 10+
-
-## Install Dependencies
 ```bash
-npm install
-```
-
-## Build
-```bash
-npm run build
-```
-
-Build output is generated in `dist/`.
-
-## Load as Unpacked Extension
-1. Open Chrome and navigate to `chrome://extensions`.
-2. Enable **Developer mode**.
-3. Click **Load unpacked**.
-4. Select the repo `dist/` directory.
-
-## Usage
-1. Open a page that contains fillable form controls.
-2. Click the extension icon.
-3. Popup shows `Detected fields: X`.
-4. Click **Fill with test**.
-5. Popup displays fill summary and page fields are updated.
-
-## Development / Verification
-Run type checks:
-```bash
-npm run typecheck
-```
-
-Run tests:
-```bash
-npm test
-```
-
-Watch build (optional):
-```bash
+pnpm dev
+# or
 npm run dev
 ```
 
-## V1 Limitations
-- No backend and no storage.
-- No profile management.
-- No in-page floating button (popup-only UI in V1).
-- No shadow-DOM traversal for deeply encapsulated custom components.
+Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
+
+You can start editing the popup by modifying `popup.tsx`. It should auto-update as you make changes. To add an options page, simply add a `options.tsx` file to the root of the project, with a react component default exported. Likewise to add a content page, add a `content.ts` file to the root of the project, importing some module and do some logic, then reload the extension on your browser.
+
+For further guidance, [visit our Documentation](https://docs.plasmo.com/)
+
+## Making production build
+
+Run the following:
+
+```bash
+pnpm build
+# or
+npm run build
+```
+
+This should create a production bundle for your extension, ready to be zipped and published to the stores.
+
+## Submit to the webstores
+
+The easiest way to deploy your Plasmo extension is to use the built-in [bpp](https://bpp.browser.market) GitHub action. Prior to using this action however, make sure to build your extension and upload the first version to the store to establish the basic credentials. Then, simply follow [this setup instruction](https://docs.plasmo.com/framework/workflows/submit) and you should be on your way for automated submission!
