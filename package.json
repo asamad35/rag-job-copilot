@@ -31,6 +31,10 @@
     "action": {
       "default_popup": "popup.html"
     },
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
     "host_permissions": [
       "https://*/*"
     ]

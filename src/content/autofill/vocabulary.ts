@@ -1,0 +1,171 @@
+import { FIELD_TYPES, FieldType } from "~src/content/autofill/types"
+
+export interface TextMatch {
+  fieldType: FieldType
+  score: number
+  token: string
+}
+
+const GENERIC_TOKENS = new Set([
+  "value",
+  "input",
+  "text",
+  "field",
+  "data",
+  "contact",
+  "detail",
+  "details",
+  "information",
+  "info"
+])
+
+const AUTOCOMPLETE_TYPE_MAP: Record<string, FieldType> = {
+  name: FieldType.FullName,
+  "given-name": FieldType.FirstName,
+  "additional-name": FieldType.FirstName,
+  "family-name": FieldType.LastName,
+  email: FieldType.Email,
+  tel: FieldType.Phone,
+  "tel-national": FieldType.Phone,
+  "tel-local": FieldType.Phone,
+  "tel-local-prefix": FieldType.Phone,
+  "tel-local-suffix": FieldType.Phone,
+  "tel-country-code": FieldType.Phone,
+  "street-address": FieldType.AddressLine1,
+  "address-line1": FieldType.AddressLine1,
+  "address-line2": FieldType.AddressLine2,
+  "address-level2": FieldType.City,
+  "address-level1": FieldType.State,
+  "postal-code": FieldType.PostalCode,
+  country: FieldType.Country,
+  "country-name": FieldType.Country,
+  organization: FieldType.Company,
+  "organization-title": FieldType.JobTitle,
+  url: FieldType.Website
+}
+
+const FIELD_TYPE_TOKENS: Record<FieldType, readonly string[]> = {
+  [FieldType.FirstName]: ["first name", "given name", "forename", "fname"],
+  [FieldType.LastName]: ["last name", "family name", "surname", "lname"],
+  [FieldType.FullName]: ["full name", "your name", "name"],
+  [FieldType.Email]: ["email", "e mail", "email address", "mail"],
+  [FieldType.Phone]: [
+    "phone",
+    "phone number",
+    "mobile",
+    "mobile number",
+    "telephone",
+    "tel"
+  ],
+  [FieldType.AddressLine1]: [
+    "address line 1",
+    "street address",
+    "street",
+    "address 1",
+    "address1"
+  ],
+  [FieldType.AddressLine2]: [
+    "address line 2",
+    "apartment",
+    "apt",
+    "suite",
+    "unit"
+  ],
+  [FieldType.City]: ["city", "town"],
+  [FieldType.State]: ["state", "province", "region"],
+  [FieldType.PostalCode]: ["postal code", "postcode", "zip", "zip code"],
+  [FieldType.Country]: ["country", "nation"],
+  [FieldType.Company]: ["company", "organization", "employer", "business"],
+  [FieldType.JobTitle]: ["job title", "title", "role", "position"],
+  [FieldType.LinkedIn]: ["linkedin", "linkedin url", "linked in"],
+  [FieldType.GitHub]: ["github", "github profile", "git hub"],
+  [FieldType.Website]: ["website", "portfolio", "url", "personal site"],
+  [FieldType.Unknown]: []
+}
+
+const escapeRegExp = (value: string): string =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+
+export const normalizeText = (rawValue: string): string => {
+  return rawValue
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ")
+}
+
+const containsToken = (normalizedText: string, token: string): boolean => {
+  const pattern = new RegExp(`(^|\\s)${escapeRegExp(token)}(\\s|$)`)
+  return pattern.test(normalizedText)
+}
+
+export const getMatchesFromText = (rawValue: string): TextMatch[] => {
+  const normalized = normalizeText(rawValue)
+  if (!normalized) {
+    return []
+  }
+
+  const results: TextMatch[] = []
+
+  for (const fieldType of FIELD_TYPES) {
+    if (fieldType === FieldType.Unknown) {
+      continue
+    }
+
+    const tokens = FIELD_TYPE_TOKENS[fieldType]
+    let strongestToken = ""
+    let matched = false
+
+    for (const token of tokens) {
+      if (containsToken(normalized, token)) {
+        matched = true
+        if (token.length > strongestToken.length) {
+          strongestToken = token
+        }
+      }
+    }
+
+    if (matched) {
+      results.push({
+        fieldType,
+        score: 1,
+        token: strongestToken
+      })
+    }
+  }
+
+  return results
+}
+
+export const getMatchesFromAutocomplete = (rawValue: string): FieldType[] => {
+  const tokens = rawValue
+    .toLowerCase()
+    .trim()
+    .split(/\s+/)
+    .map((token) => token.trim())
+    .filter(Boolean)
+  const matches: FieldType[] = []
+
+  for (const token of tokens) {
+    const mapped = AUTOCOMPLETE_TYPE_MAP[token]
+    if (mapped && !matches.includes(mapped)) {
+      matches.push(mapped)
+    }
+  }
+
+  return matches
+}
+
+export const isGenericText = (rawValue: string): boolean => {
+  const normalized = normalizeText(rawValue)
+  if (!normalized) {
+    return true
+  }
+
+  const tokens = normalized.split(" ").filter(Boolean)
+  if (tokens.length === 0) {
+    return true
+  }
+
+  return tokens.every((token) => GENERIC_TOKENS.has(token))
+}
