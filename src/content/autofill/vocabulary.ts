@@ -52,14 +52,36 @@ const AUTOCOMPLETE_TYPE_MAP: Record<string, FieldType> = {
 }
 
 const FIELD_TYPE_TOKENS: Record<FieldType, readonly FieldTypeToken[]> = {
-  [FieldType.FirstName]: ["first name", "given name", "forename", "fname"],
-  [FieldType.LastName]: ["last name", "family name", "surname", "lname"],
-  [FieldType.FullName]: ["full name", "your name", "name"],
-  [FieldType.Email]: ["email", "e mail", "email address", "mail"],
+  [FieldType.FirstName]: [
+    { token: "first name", score: 1.2 },
+    "given name",
+    "forename",
+    "fname",
+    { token: "first", score: 0.85 }
+  ],
+  [FieldType.LastName]: [
+    { token: "last name", score: 1.2 },
+    "family name",
+    "surname",
+    "lname",
+    { token: "last", score: 0.85 }
+  ],
+  [FieldType.FullName]: [
+    { token: "full name", score: 1.2 },
+    "your name",
+    { token: "name", score: 0.5 }
+  ],
+  [FieldType.Email]: [
+    { token: "email", score: 1.2 },
+    "e mail",
+    { token: "email address", score: 1.2 },
+    "mail"
+  ],
   [FieldType.Phone]: [
+    { token: "phone", score: 1.2 },
     "phone",
     "phone number",
-    "mobile",
+    { token: "mobile", score: 1.2 },
     "mobile number",
     "telephone",
     "tel"
@@ -81,14 +103,18 @@ const FIELD_TYPE_TOKENS: Record<FieldType, readonly FieldTypeToken[]> = {
   [FieldType.City]: [
     "city",
     "town",
-    "current location",
-    "present location",
     "current city",
     { token: "city", score: 1.25 }
   ],
   [FieldType.State]: ["state", "province", "region"],
   [FieldType.PostalCode]: ["postal code", "postcode", "zip", "zip code"],
-  [FieldType.Country]: ["country", "nation", "current city"],
+  [FieldType.Country]: [
+    "country",
+    "nation",
+    "current location",
+    "present location",
+    { token: "location", score: 1.2 }
+  ],
   [FieldType.Company]: ["company", "organization", "employer", "business"],
   [FieldType.JobTitle]: ["job title", "title", "role", "position"],
   [FieldType.CurrentCtc]: [
