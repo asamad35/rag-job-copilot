@@ -1,6 +1,12 @@
 import { useState } from "react"
 
 import {
+  FieldType,
+  Layer1RunSnapshot,
+  LayerStatus
+} from "~src/content/autofill/types"
+import { getFieldTypeLabel } from "~src/shared/field-labels"
+import {
   FILL_FORM_MESSAGE_TYPE,
   FillFormResponse
 } from "~src/shared/autofill-messages"
@@ -56,7 +62,6 @@ const isUnsupportedTabUrl = (url: string): string | null => {
 
 const requestFillForm = async (tabId: number): Promise<FillFormResponse> => {
   const response = await new Promise<FillFormResponse | undefined>((resolve) => {
-    console.log('step 1')  
     chrome.tabs.sendMessage(
         tabId,
         {
@@ -94,9 +99,91 @@ const requestFillForm = async (tabId: number): Promise<FillFormResponse> => {
   return response
 }
 
+interface NamedField {
+  id: string
+  name: string
+  reason?: string
+}
+
+interface FieldGroupProps {
+  title: string
+  items: NamedField[]
+  emptyText: string
+}
+
+const FieldGroup = ({ title, items, emptyText }: FieldGroupProps) => {
+  return (
+    <section className="rounded-md border border-slate-200 bg-slate-50 p-2">
+      <h3 className="text-xs font-semibold text-slate-800">
+        {title} ({items.length})
+      </h3>
+      {items.length === 0 ? (
+        <p className="mt-1 text-xs text-slate-500">{emptyText}</p>
+      ) : (
+        <ul className="mt-1 space-y-1">
+          {items.map((item) => (
+            <li className="text-xs text-slate-700" key={item.id}>
+              <span>{item.name}</span>
+              {item.reason ? (
+                <span className="text-slate-500"> - {item.reason}</span>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  )
+}
+
+const createSummaryGroups = (summary: Layer1RunSnapshot) => {
+  const resultByFieldId = new Map(summary.results.map((result) => [result.fieldId, result]))
+  const fillActionByFieldId = new Map(
+    summary.fillActions.map((action) => [action.fieldId, action])
+  )
+
+  const totalFields: NamedField[] = summary.results.map((result) => ({
+    id: result.fieldId,
+    name: result.fieldName
+  }))
+
+  const resolvedFields: NamedField[] = summary.results
+    .filter((result) => result.status === LayerStatus.Resolved)
+    .map((result) => ({
+      id: result.fieldId,
+      name: result.fieldName
+    }))
+
+  const filledFields: NamedField[] = summary.fillActions
+    .filter((action) => action.filled)
+    .map((action) => ({
+      id: action.fieldId,
+      name:
+        resultByFieldId.get(action.fieldId)?.fieldName ??
+        getFieldTypeLabel(action.fieldType ?? FieldType.Unknown)
+    }))
+
+  const resolvedNotFilled: NamedField[] = resolvedFields
+    .filter((result) => !fillActionByFieldId.get(result.id)?.filled)
+    .map((result) => ({
+      id: result.id,
+      name: result.name,
+      reason:
+        fillActionByFieldId.get(result.id)?.reason ??
+        "No fill action completed."
+    }))
+
+  return {
+    totalFields,
+    resolvedFields,
+    filledFields,
+    resolvedNotFilled
+  }
+}
+
 export const FillFormButton = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [statusMessage, setStatusMessage] = useState("")
+  const [summary, setSummary] = useState<Layer1RunSnapshot | null>(null)
 
   const onFillFormClick = async () => {
     if (isSubmitting) {
@@ -105,6 +192,7 @@ export const FillFormButton = () => {
 
     setIsSubmitting(true)
     setStatusMessage("")
+    setSummary(null)
 
     try {
       const activeTab = await getActiveTabContext()
@@ -121,13 +209,13 @@ export const FillFormButton = () => {
       }
 
       const response = await requestFillForm(activeTab.id)
-      console.log(response, 'response')
 
       if (!response.ok) {
         setStatusMessage(response.error ?? "Autofill failed due to unknown error.")
         return
       }
 
+      setSummary(response.summary ?? null)
       const resolvedCount = response.summary?.resolved ?? 0
       const filledCount = response.summary?.filled ?? 0
       setStatusMessage(`Layer 1 complete: ${filledCount} filled, ${resolvedCount} resolved.`)
@@ -140,6 +228,8 @@ export const FillFormButton = () => {
       setIsSubmitting(false)
     }
   }
+
+  const groups = summary ? createSummaryGroups(summary) : null
 
   return (
     <div className="space-y-2">
@@ -154,6 +244,30 @@ export const FillFormButton = () => {
         <p className="text-xs text-slate-700" role="status">
           {statusMessage}
         </p>
+      ) : null}
+      {groups ? (
+        <div className="space-y-2">
+          <FieldGroup
+            emptyText="No fields detected."
+            items={groups.totalFields}
+            title="Total Fields"
+          />
+          <FieldGroup
+            emptyText="No resolved fields yet."
+            items={groups.resolvedFields}
+            title="Resolved Fields"
+          />
+          <FieldGroup
+            emptyText="No fields were filled."
+            items={groups.filledFields}
+            title="Filled Fields"
+          />
+          <FieldGroup
+            emptyText="No resolved-but-unfilled fields."
+            items={groups.resolvedNotFilled}
+            title="Resolved But Not Filled"
+          />
+        </div>
       ) : null}
     </div>
   )

@@ -14,7 +14,6 @@ export interface FillFormResponse {
 }
 
 export const isFillFormMessage = (value: unknown): value is FillFormMessage => {
-  console.log("step 2")
   if (typeof value !== "object" || value === null) {
     return false
   }

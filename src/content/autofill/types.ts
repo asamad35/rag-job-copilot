@@ -12,6 +12,9 @@ export enum FieldType {
   Country = "country",
   Company = "company",
   JobTitle = "job_title",
+  CurrentCtc = "current_ctc",
+  ExpectedCtc = "expected_ctc",
+  NoticePeriod = "notice_period",
   LinkedIn = "linkedin",
   GitHub = "github",
   Website = "website",
@@ -112,6 +115,7 @@ export interface Layer1RunSummary {
 
 export interface Layer1ResultSnapshot {
   fieldId: string
+  fieldName: string
   controlKind: ControlKind
   fieldType: FieldType
   confidence: number
@@ -157,6 +161,9 @@ export const FIELD_TYPES: readonly FieldType[] = [
   FieldType.Country,
   FieldType.Company,
   FieldType.JobTitle,
+  FieldType.CurrentCtc,
+  FieldType.ExpectedCtc,
+  FieldType.NoticePeriod,
   FieldType.LinkedIn,
   FieldType.GitHub,
   FieldType.Website,

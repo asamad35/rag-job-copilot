@@ -71,12 +71,44 @@ const FIELD_TYPE_TOKENS: Record<FieldType, readonly string[]> = {
     "suite",
     "unit"
   ],
-  [FieldType.City]: ["city", "town"],
+  [FieldType.City]: [
+    "city",
+    "town",
+    "current location",
+    "present location",
+    "current city"
+  ],
   [FieldType.State]: ["state", "province", "region"],
   [FieldType.PostalCode]: ["postal code", "postcode", "zip", "zip code"],
   [FieldType.Country]: ["country", "nation"],
   [FieldType.Company]: ["company", "organization", "employer", "business"],
   [FieldType.JobTitle]: ["job title", "title", "role", "position"],
+  [FieldType.CurrentCtc]: [
+    "current ctc",
+    "ctc",
+    "current salary",
+    "current package",
+    "present salary",
+    "current compensation"
+  ],
+  [FieldType.ExpectedCtc]: [
+    "expected ctc",
+    "salary expectation",
+    "expected salary",
+    "expected package",
+    "expected compensation",
+    "desired salary",
+    "desired ctc"
+  ],
+  [FieldType.NoticePeriod]: [
+    "notice period",
+    "notice period end",
+    "notice end date",
+    "last working day",
+    "lwd",
+    "relieving date",
+    "serving notice"
+  ],
   [FieldType.LinkedIn]: ["linkedin", "linkedin url", "linked in"],
   [FieldType.GitHub]: ["github", "github profile", "git hub"],
   [FieldType.Website]: ["website", "portfolio", "url", "personal site"],

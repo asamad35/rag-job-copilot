@@ -3,22 +3,25 @@ import { AutofillProfile, FieldType } from "~src/content/autofill/types"
 const STORAGE_KEY = "autofill_profile"
 
 export const DEFAULT_AUTOFILL_PROFILE: AutofillProfile = {
-  [FieldType.FirstName]: "Alex",
-  [FieldType.LastName]: "Taylor",
-  [FieldType.FullName]: "Alex Taylor",
-  [FieldType.Email]: "alex.taylor@example.com",
-  [FieldType.Phone]: "5551234567",
-  [FieldType.AddressLine1]: "123 Main St",
-  [FieldType.AddressLine2]: "Apt 4B",
-  [FieldType.City]: "San Francisco",
-  [FieldType.State]: "CA",
-  [FieldType.PostalCode]: "94105",
-  [FieldType.Country]: "United States",
-  [FieldType.Company]: "Acme Labs",
+  [FieldType.FirstName]: "Abdus",
+  [FieldType.LastName]: "Samad",
+  [FieldType.FullName]: "Abdus Samad",
+  [FieldType.Email]: "samad.abdus3535@gmail.com",
+  [FieldType.Phone]: "9654405340",
+  [FieldType.AddressLine1]: "4137, Urdu Bazar, Jama Masjid, 110006",
+  [FieldType.AddressLine2]: "4137, Urdu Bazar, Jama Masjid, 110006",
+  [FieldType.City]: "Delhi",
+  [FieldType.State]: "Delhi",
+  [FieldType.PostalCode]: "110006",
+  [FieldType.Country]: "India",
+  [FieldType.Company]: "Caw Studios",
   [FieldType.JobTitle]: "Software Engineer",
-  [FieldType.LinkedIn]: "https://www.linkedin.com/in/alextaylor",
-  [FieldType.GitHub]: "https://github.com/alextaylor",
-  [FieldType.Website]: "https://alextaylor.dev"
+  [FieldType.CurrentCtc]: "2300000",
+  [FieldType.ExpectedCtc]: "3200000",
+  [FieldType.NoticePeriod]: "23rd March 2026",
+  [FieldType.LinkedIn]: "https://www.linkedin.com/in/asamad35/",
+  [FieldType.GitHub]: "https://github.com/asamad35",
+  [FieldType.Website]: "https://asamad.vercel.app/"
 }
 
 const isObject = (value: unknown): value is Record<string, unknown> =>

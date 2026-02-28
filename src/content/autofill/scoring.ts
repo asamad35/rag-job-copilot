@@ -78,7 +78,6 @@ const hasStrongConflict = (evidence: Evidence[]): boolean => {
 
 const hasGenericOnlySignals = (signals: ExtractedSignals): boolean => {
   const rawValues = Object.values(signals).flatMap((values) => values)
-  console.log({ signals, rawValues }, "aa")
 
   if (rawValues.length === 0) {
     return false

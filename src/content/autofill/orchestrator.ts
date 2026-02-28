@@ -8,6 +8,7 @@ import {
   Layer1RunSummary,
   LayerStatus
 } from "~src/content/autofill/types"
+import { getFieldTypeLabel } from "~src/shared/field-labels"
 
 const countByStatus = (
   summary: Layer1RunSummary,
@@ -18,9 +19,7 @@ export const runLayer1Autofill = (
   profile: AutofillProfile,
   options: Layer1RunOptions = {}
 ): Layer1RunSummary => {
-  console.log({ document }, "test111")
   const discoveredFields = discoverFormFields(document)
-  console.log({ discoveredFields })
   const results = discoveredFields.map((field) =>
     evaluateFieldWithLayer1(field)
   )
@@ -67,6 +66,7 @@ export const toLayer1RunSnapshot = (
     skipped: summary.skipped,
     results: summary.results.map((result) => ({
       fieldId: result.fieldId,
+      fieldName: getFieldTypeLabel(result.fieldType),
       controlKind: result.controlKind,
       fieldType: result.fieldType,
       confidence: result.confidence,
