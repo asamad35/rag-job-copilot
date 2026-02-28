@@ -18,6 +18,7 @@ const REVIEW_THRESHOLD = 0.5
 const MARGIN_DIVISOR = 0.35
 const CONFLICT_PENALTY = 0.25
 const GENERIC_TEXT_PENALTY = 0.1
+const STRONG_EVIDENCE_WEIGHT = 0.75
 
 const SIGNAL_WEIGHTS: Record<SignalType, number> = {
   [SignalType.LabelFor]: 1,
@@ -65,13 +66,31 @@ const getTopTwoScoredTypes = (typeScores: Record<FieldType, number>) => {
 }
 
 const hasStrongConflict = (evidence: Evidence[]): boolean => {
-  const topSignalTypes = new Set<FieldType>()
+  const dominantTypeBySignal = new Map<SignalType, Evidence>()
 
   for (const item of evidence) {
-    if (HIGH_PRIORITY_SIGNALS.has(item.signal)) {
-      topSignalTypes.add(item.matchedType)
+    if (!HIGH_PRIORITY_SIGNALS.has(item.signal)) {
+      continue
+    }
+
+    if (item.weight < STRONG_EVIDENCE_WEIGHT) {
+      continue
+    }
+
+    const existing = dominantTypeBySignal.get(item.signal)
+
+    if (!existing || item.weight > existing.weight) {
+      dominantTypeBySignal.set(item.signal, item)
     }
   }
+
+  if (dominantTypeBySignal.size < 2) {
+    return false
+  }
+
+  const topSignalTypes = new Set(
+    Array.from(dominantTypeBySignal.values(), (item) => item.matchedType)
+  )
 
   return topSignalTypes.size > 1
 }

@@ -7,7 +7,7 @@ export const DEFAULT_AUTOFILL_PROFILE: AutofillProfile = {
   [FieldType.LastName]: "Samad",
   [FieldType.FullName]: "Abdus Samad",
   [FieldType.Email]: "samad.abdus3535@gmail.com",
-  [FieldType.Phone]: "9654405340",
+  [FieldType.Phone]: "+919654405340",
   [FieldType.AddressLine1]: "4137, Urdu Bazar, Jama Masjid, 110006",
   [FieldType.AddressLine2]: "4137, Urdu Bazar, Jama Masjid, 110006",
   [FieldType.City]: "Delhi",

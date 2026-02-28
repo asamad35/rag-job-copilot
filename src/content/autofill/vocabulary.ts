@@ -6,6 +6,13 @@ export interface TextMatch {
   token: string
 }
 
+interface TokenPattern {
+  token: string
+  score?: number
+}
+
+type FieldTypeToken = string | TokenPattern
+
 const GENERIC_TOKENS = new Set([
   "value",
   "input",
@@ -44,7 +51,7 @@ const AUTOCOMPLETE_TYPE_MAP: Record<string, FieldType> = {
   url: FieldType.Website
 }
 
-const FIELD_TYPE_TOKENS: Record<FieldType, readonly string[]> = {
+const FIELD_TYPE_TOKENS: Record<FieldType, readonly FieldTypeToken[]> = {
   [FieldType.FirstName]: ["first name", "given name", "forename", "fname"],
   [FieldType.LastName]: ["last name", "family name", "surname", "lname"],
   [FieldType.FullName]: ["full name", "your name", "name"],
@@ -76,11 +83,12 @@ const FIELD_TYPE_TOKENS: Record<FieldType, readonly string[]> = {
     "town",
     "current location",
     "present location",
-    "current city"
+    "current city",
+    { token: "city", score: 1.25 }
   ],
   [FieldType.State]: ["state", "province", "region"],
   [FieldType.PostalCode]: ["postal code", "postcode", "zip", "zip code"],
-  [FieldType.Country]: ["country", "nation"],
+  [FieldType.Country]: ["country", "nation", "current city"],
   [FieldType.Company]: ["company", "organization", "employer", "business"],
   [FieldType.JobTitle]: ["job title", "title", "role", "position"],
   [FieldType.CurrentCtc]: [
@@ -93,6 +101,12 @@ const FIELD_TYPE_TOKENS: Record<FieldType, readonly string[]> = {
   ],
   [FieldType.ExpectedCtc]: [
     "expected ctc",
+    "expected annual compensation",
+    "expected total compensation",
+    "expected compensation range",
+    "expected annual total compensation",
+    "expected annual total compensation range",
+    "annual total compensation expectation",
     "salary expectation",
     "expected salary",
     "expected package",
@@ -110,17 +124,31 @@ const FIELD_TYPE_TOKENS: Record<FieldType, readonly string[]> = {
     "serving notice"
   ],
   [FieldType.Resume]: [
-    "resume",
+    { token: "resume", score: 1.25 },
+    { token: "cv", score: 1.25 },
     "resume cv",
-    "cv",
     "curriculum vitae",
     "upload resume",
     "attach resume",
     "resume upload"
   ],
-  [FieldType.LinkedIn]: ["linkedin", "linkedin url", "linked in"],
-  [FieldType.GitHub]: ["github", "github profile", "git hub"],
-  [FieldType.Website]: ["website", "portfolio", "url", "personal site"],
+  [FieldType.LinkedIn]: [
+    { token: "linkedin", score: 1.25 },
+    { token: "linkedin url", score: 1.25 },
+    { token: "linkedin profile", score: 1.25 },
+    "linked in"
+  ],
+  [FieldType.GitHub]: [
+    { token: "github", score: 1.25 },
+    "github profile",
+    "git hub"
+  ],
+  [FieldType.Website]: [
+    "website",
+    "portfolio",
+    { token: "portfolio", score: 1.25 },
+    "personal site"
+  ],
   [FieldType.Unknown]: []
 }
 
@@ -140,6 +168,17 @@ const containsToken = (normalizedText: string, token: string): boolean => {
   return pattern.test(normalizedText)
 }
 
+const toTokenPattern = (token: FieldTypeToken): Required<TokenPattern> => {
+  if (typeof token === "string") {
+    return { token, score: 1 }
+  }
+
+  return {
+    token: token.token,
+    score: token.score ?? 1
+  }
+}
+
 export const getMatchesFromText = (rawValue: string): TextMatch[] => {
   const normalized = normalizeText(rawValue)
   if (!normalized) {
@@ -154,23 +193,38 @@ export const getMatchesFromText = (rawValue: string): TextMatch[] => {
     }
 
     const tokens = FIELD_TYPE_TOKENS[fieldType]
-    let strongestToken = ""
-    let matched = false
+    let strongestMatch: Required<TokenPattern> | null = null
 
-    for (const token of tokens) {
-      if (containsToken(normalized, token)) {
-        matched = true
-        if (token.length > strongestToken.length) {
-          strongestToken = token
-        }
+    for (const rawToken of tokens) {
+      const tokenPattern = toTokenPattern(rawToken)
+
+      if (!containsToken(normalized, tokenPattern.token)) {
+        continue
+      }
+
+      if (!strongestMatch) {
+        strongestMatch = tokenPattern
+        continue
+      }
+
+      if (tokenPattern.score > strongestMatch.score) {
+        strongestMatch = tokenPattern
+        continue
+      }
+
+      if (
+        tokenPattern.score === strongestMatch.score &&
+        tokenPattern.token.length > strongestMatch.token.length
+      ) {
+        strongestMatch = tokenPattern
       }
     }
 
-    if (matched) {
+    if (strongestMatch) {
       results.push({
         fieldType,
-        score: 1,
-        token: strongestToken
+        score: strongestMatch.score,
+        token: strongestMatch.token
       })
     }
   }
