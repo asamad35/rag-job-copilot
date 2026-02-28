@@ -1,15 +1,79 @@
+import bundledResumeDataUrl from "data-url:../../../Samad_Resume.pdf"
+
 import {
   AutofillProfile,
   AutofillValue,
   ControlKind,
+  FieldType,
   FillActionResult,
   Layer1Result,
   LayerStatus
 } from "~src/content/autofill/types"
 
+const DEFAULT_RESUME_FILE_NAME = "Samad_Resume.pdf"
+
+let cachedBundledResumeFile: File | null | undefined
+
 const dispatchFieldEvents = (element: Element) => {
   element.dispatchEvent(new Event("input", { bubbles: true }))
   element.dispatchEvent(new Event("change", { bubbles: true }))
+}
+
+const dataUrlToFile = (dataUrl: string, fileName: string): File | undefined => {
+  const match = /^data:([^;,]+)?(?:;base64)?,(.*)$/.exec(dataUrl)
+  if (!match) {
+    return undefined
+  }
+
+  const mimeType = match[1] ?? "application/octet-stream"
+  const payload = match[2] ?? ""
+  const isBase64 = dataUrl.includes(";base64,")
+
+  if (isBase64) {
+    let normalizedPayload = payload.trim()
+
+    try {
+      normalizedPayload = decodeURIComponent(normalizedPayload)
+    } catch {
+      // Keep original payload if it is already plain base64.
+    }
+
+    normalizedPayload = normalizedPayload
+      .replace(/[\r\n\s]/g, "")
+      .replace(/-/g, "+")
+      .replace(/_/g, "/")
+
+    const remainder = normalizedPayload.length % 4
+    if (remainder > 0) {
+      normalizedPayload = normalizedPayload.padEnd(
+        normalizedPayload.length + (4 - remainder),
+        "="
+      )
+    }
+
+    const binaryString = atob(normalizedPayload)
+    const bytes = new Uint8Array(binaryString.length)
+
+    for (let index = 0; index < binaryString.length; index += 1) {
+      bytes[index] = binaryString.charCodeAt(index)
+    }
+
+    return new File([bytes], fileName, { type: mimeType })
+  }
+
+  const decoded = decodeURIComponent(payload)
+  return new File([decoded], fileName, { type: mimeType })
+}
+
+const getBundledResumeFile = (): File | undefined => {
+  if (cachedBundledResumeFile !== undefined) {
+    return cachedBundledResumeFile ?? undefined
+  }
+
+  cachedBundledResumeFile =
+    dataUrlToFile(bundledResumeDataUrl, DEFAULT_RESUME_FILE_NAME) ?? null
+
+  return cachedBundledResumeFile ?? undefined
 }
 
 const setNativeValue = (
@@ -39,6 +103,29 @@ const setNativeChecked = (element: HTMLInputElement, nextChecked: boolean) => {
   } else {
     element.checked = nextChecked
   }
+}
+
+const setNativeFiles = (element: HTMLInputElement, files: File[]): boolean => {
+  if (typeof DataTransfer === "undefined") {
+    return false
+  }
+
+  const dataTransfer = new DataTransfer()
+  for (const file of files) {
+    dataTransfer.items.add(file)
+  }
+
+  const descriptor = Object.getOwnPropertyDescriptor(
+    HTMLInputElement.prototype,
+    "files"
+  )
+
+  if (!descriptor?.set) {
+    return false
+  }
+
+  descriptor.set.call(element, dataTransfer.files)
+  return true
 }
 
 const isInputWithBooleanValue = (
@@ -169,6 +256,47 @@ const fillFieldValue = (
     }
   }
 
+  if (
+    element instanceof HTMLInputElement &&
+    element.type.toLowerCase() === "file"
+  ) {
+    if (result.fieldType !== FieldType.Resume) {
+      return {
+        fieldId: result.fieldId,
+        fieldType: result.fieldType,
+        filled: false,
+        reason: "Only resume/CV file fields are supported."
+      }
+    }
+
+    const resumeFile = getBundledResumeFile()
+    if (!resumeFile) {
+      return {
+        fieldId: result.fieldId,
+        fieldType: result.fieldType,
+        filled: false,
+        reason: "Bundled resume file is unavailable."
+      }
+    }
+
+    const assigned = setNativeFiles(element, [resumeFile])
+    if (!assigned) {
+      return {
+        fieldId: result.fieldId,
+        fieldType: result.fieldType,
+        filled: false,
+        reason: "Browser blocked programmatic file assignment."
+      }
+    }
+
+    dispatchFieldEvents(element)
+    return {
+      fieldId: result.fieldId,
+      fieldType: result.fieldType,
+      filled: true
+    }
+  }
+
   const stringValue = toStringValue(value)
   if (!stringValue) {
     return {
@@ -226,7 +354,7 @@ export const fillResolvedFields = (
   profile: AutofillProfile
 ): FillActionResult[] => {
   const actions: FillActionResult[] = []
-  console.log({ results })
+  console.log({ results, profile }, "1111")
   for (const result of results) {
     const profileValue = profile[result.fieldType]
     actions.push(fillFieldValue(result, profileValue))

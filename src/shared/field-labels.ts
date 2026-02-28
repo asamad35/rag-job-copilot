@@ -17,6 +17,7 @@ const FIELD_TYPE_LABELS: Record<FieldType, string> = {
   [FieldType.CurrentCtc]: "Current CTC",
   [FieldType.ExpectedCtc]: "Expected CTC",
   [FieldType.NoticePeriod]: "Notice Period",
+  [FieldType.Resume]: "Resume",
   [FieldType.LinkedIn]: "LinkedIn",
   [FieldType.GitHub]: "GitHub",
   [FieldType.Website]: "Website",

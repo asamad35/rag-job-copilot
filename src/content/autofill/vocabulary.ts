@@ -109,6 +109,15 @@ const FIELD_TYPE_TOKENS: Record<FieldType, readonly string[]> = {
     "relieving date",
     "serving notice"
   ],
+  [FieldType.Resume]: [
+    "resume",
+    "resume cv",
+    "cv",
+    "curriculum vitae",
+    "upload resume",
+    "attach resume",
+    "resume upload"
+  ],
   [FieldType.LinkedIn]: ["linkedin", "linkedin url", "linked in"],
   [FieldType.GitHub]: ["github", "github profile", "git hub"],
   [FieldType.Website]: ["website", "portfolio", "url", "personal site"],

@@ -141,10 +141,6 @@ const classifyControlKind = (element: FieldElement): ControlKind => {
 }
 
 const canAutofill = (element: FieldElement, controlKind: ControlKind): [boolean, string?] => {
-  if (controlKind === ControlKind.File) {
-    return [false, "File inputs cannot be auto-filled by browser extensions."]
-  }
-
   if (element instanceof HTMLElement) {
     const blockedByPolicy =
       element.getAttribute("autocomplete")?.toLowerCase() === "off" &&

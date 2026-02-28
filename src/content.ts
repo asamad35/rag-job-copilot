@@ -17,16 +17,13 @@ export const config: PlasmoCSConfig = {
 
 chrome.runtime.onMessage.addListener(
   (message: unknown, _sender, sendResponse) => {
-    console.log({ message, _sender })
     if (!isFillFormMessage(message)) {
       return
     }
 
     void (async () => {
-      console.log("step 3")
       try {
         const profile = await loadAutofillProfile()
-        console.log({ profile })
         const summary = runLayer1Autofill(profile, { debug: message.debug })
         const response: FillFormResponse = {
           ok: true,

@@ -245,7 +245,7 @@ export const FillFormButton = () => {
           {statusMessage}
         </p>
       ) : null}
-      {groups ? (
+      {/* {groups ? (
         <div className="space-y-2">
           <FieldGroup
             emptyText="No fields detected."
@@ -268,7 +268,7 @@ export const FillFormButton = () => {
             title="Resolved But Not Filled"
           />
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   )
 }
