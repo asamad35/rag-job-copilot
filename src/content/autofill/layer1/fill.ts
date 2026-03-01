@@ -1,4 +1,4 @@
-import bundledResumeDataUrl from "data-url:../../../Samad_Resume.pdf"
+import bundledResumeDataUrl from "data-url:../../../../Samad_Resume.pdf"
 
 import {
   AutofillProfile,
@@ -354,7 +354,6 @@ export const fillResolvedFields = (
   profile: AutofillProfile
 ): FillActionResult[] => {
   const actions: FillActionResult[] = []
-  console.log({ results, profile }, "1111")
   for (const result of results) {
     const profileValue = profile[result.fieldType]
     actions.push(fillFieldValue(result, profileValue))

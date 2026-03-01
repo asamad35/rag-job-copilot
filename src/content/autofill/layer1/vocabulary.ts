@@ -116,17 +116,25 @@ const FIELD_TYPE_TOKENS: Record<FieldType, readonly FieldTypeToken[]> = {
     { token: "location", score: 1.2 }
   ],
   [FieldType.Company]: ["company", "organization", "employer", "business"],
-  [FieldType.JobTitle]: ["job title", "title", "role", "position"],
+  [FieldType.JobTitle]: [
+    { token: "job title", score: 1.3 },
+    { token: "position title", score: 1.2 },
+    { token: "title", score: 0.75 },
+    { token: "role", score: 0.75 },
+    { token: "position", score: 0.35 }
+  ],
   [FieldType.CurrentCtc]: [
-    "current ctc",
-    "ctc",
+    { token: "current ctc", score: 1.25 },
+    { token: "ctc", score: 0.45 },
     "current salary",
     "current package",
     "present salary",
     "current compensation"
   ],
   [FieldType.ExpectedCtc]: [
-    "expected ctc",
+    { token: "expected ctc", score: 1.3 },
+    { token: "expected compensation", score: 1.3 },
+    { token: "compensation for this position", score: 1.25 },
     "expected annual compensation",
     "expected total compensation",
     "expected compensation range",
@@ -138,7 +146,7 @@ const FIELD_TYPE_TOKENS: Record<FieldType, readonly FieldTypeToken[]> = {
     "expected package",
     "expected compensation",
     "desired salary",
-    "desired ctc"
+    { token: "desired ctc", score: 1.2 }
   ],
   [FieldType.NoticePeriod]: [
     "notice period",

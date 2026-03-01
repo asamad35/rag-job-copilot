@@ -11,7 +11,7 @@ import {
   getMatchesFromAutocomplete,
   getMatchesFromText,
   isGenericText
-} from "~src/content/autofill/vocabulary"
+} from "~src/content/autofill/layer1/vocabulary"
 
 const ACCEPT_THRESHOLD = 0.9
 const REVIEW_THRESHOLD = 0.5

@@ -1,4 +1,4 @@
-import { scoreLayer1Signals } from "~src/content/autofill/scoring"
+import { scoreLayer1Signals } from "~src/content/autofill/layer1/scoring"
 import {
   DiscoveredField,
   ExtractedSignals,
@@ -186,6 +186,7 @@ export const evaluateFieldWithLayer1 = (
     controlKind: field.controlKind,
     fillable: field.fillable,
     skipReason: field.skipReason,
+    resolutionLayer: "layer1",
     signals,
     ...scored
   }

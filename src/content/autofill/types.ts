@@ -86,6 +86,8 @@ export interface Layer1Result extends ScoredLayer1Field {
   fillable: boolean
   skipReason?: string
   signals: ExtractedSignals
+  resolutionLayer?: ResolutionLayer
+  layer2Match?: Layer2Match
 }
 
 export type AutofillValue = string | boolean
@@ -124,6 +126,8 @@ export interface Layer1ResultSnapshot {
   fillable: boolean
   skipReason?: string
   evidence: Evidence[]
+  resolutionLayer?: ResolutionLayer
+  layer2Match?: Layer2MatchSnapshot
 }
 
 export interface Layer1RunSnapshot {
@@ -171,3 +175,42 @@ export const FIELD_TYPES: readonly FieldType[] = [
   FieldType.Website,
   FieldType.Unknown
 ]
+
+export type ResolutionLayer = "layer1" | "layer2"
+
+export interface LabelLikeCandidate {
+  textNode: Text
+  element: HTMLElement
+  text: string
+  normalizedText: string
+  tagName: string
+  textLength: number
+}
+
+export interface Layer2Match {
+  fieldId: string
+  candidateText: string
+  lcaDistance: number
+  sameGroup: boolean
+  lexicalTopType: FieldType
+  lexicalScore: number
+  combinedScore: number
+}
+
+export interface Layer2MatchSnapshot {
+  candidateText: string
+  lcaDistance: number
+  sameGroup: boolean
+  lexicalTopType: FieldType
+  lexicalScore: number
+  combinedScore: number
+}
+
+export interface Layer2Decision {
+  fieldId: string
+  fieldType: FieldType
+  confidence: number
+  status: LayerStatus
+  typeScores: Record<FieldType, number>
+  match?: Layer2Match
+}

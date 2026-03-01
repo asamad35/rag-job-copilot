@@ -1,6 +1,7 @@
-import { discoverFormFields } from "~src/content/autofill/field-discovery"
-import { fillResolvedFields } from "~src/content/autofill/fill"
-import { evaluateFieldWithLayer1 } from "~src/content/autofill/layer1"
+import { discoverFormFields } from "~src/content/autofill/layer1/field-discovery"
+import { fillResolvedFields } from "~src/content/autofill/layer1/fill"
+import { evaluateFieldWithLayer1 } from "~src/content/autofill/layer1/layer1"
+import { refineResultsWithLayer2 } from "~src/content/autofill/layer2/layer2"
 import {
   AutofillProfile,
   Layer1RunOptions,
@@ -20,9 +21,14 @@ export const runLayer1Autofill = (
   options: Layer1RunOptions = {}
 ): Layer1RunSummary => {
   const discoveredFields = discoverFormFields(document)
-  const results = discoveredFields.map((field) =>
+  const layer1Results = discoveredFields.map((field) =>
     evaluateFieldWithLayer1(field)
   )
+  const results = refineResultsWithLayer2(layer1Results, {
+    debug: options.debug
+  })
+
+  console.log({ results })
   const fillActions = fillResolvedFields(results, profile)
 
   const summary: Layer1RunSummary = {
@@ -73,7 +79,18 @@ export const toLayer1RunSnapshot = (
       status: result.status,
       fillable: result.fillable,
       skipReason: result.skipReason,
-      evidence: result.evidence
+      evidence: result.evidence,
+      resolutionLayer: result.resolutionLayer,
+      layer2Match: result.layer2Match
+        ? {
+            candidateText: result.layer2Match.candidateText,
+            lcaDistance: result.layer2Match.lcaDistance,
+            sameGroup: result.layer2Match.sameGroup,
+            lexicalTopType: result.layer2Match.lexicalTopType,
+            lexicalScore: result.layer2Match.lexicalScore,
+            combinedScore: result.layer2Match.combinedScore
+          }
+        : undefined
     })),
     fillActions: summary.fillActions
   }
