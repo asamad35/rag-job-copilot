@@ -10,14 +10,26 @@ export enum FieldType {
   State = "state",
   PostalCode = "postal_code",
   Country = "country",
+  Gender = "gender",
   Company = "company",
   JobTitle = "job_title",
+  TotalExperience = "total_experience",
+  RelevantExperience = "relevant_experience",
+  Skills = "skills",
+  TechStack = "tech_stack",
+  ScaleExperience = "scale_experience",
+  ProfessionalSummary = "professional_summary",
+  ProjectSummary = "project_summary",
+  HighestEducation = "highest_education",
+  GraduationYear = "graduation_year",
+  DateOfBirth = "date_of_birth",
   CurrentCtc = "current_ctc",
   ExpectedCtc = "expected_ctc",
   NoticePeriod = "notice_period",
   Resume = "resume",
   LinkedIn = "linkedin",
   GitHub = "github",
+  LeetCode = "leetcode",
   Website = "website",
   Unknown = "unknown"
 }
@@ -86,11 +98,11 @@ export interface Layer1Result extends ScoredLayer1Field {
   fillable: boolean
   skipReason?: string
   signals: ExtractedSignals
-  resolutionLayer?: ResolutionLayer
+  resolutionLayer: ResolutionLayer
   layer2Match?: Layer2Match
 }
 
-export type AutofillValue = string | boolean
+export type AutofillValue = string | boolean | string[]
 
 export type AutofillProfile = Partial<Record<FieldType, AutofillValue>>
 
@@ -126,7 +138,7 @@ export interface Layer1ResultSnapshot {
   fillable: boolean
   skipReason?: string
   evidence: Evidence[]
-  resolutionLayer?: ResolutionLayer
+  resolutionLayer: ResolutionLayer
   layer2Match?: Layer2MatchSnapshot
 }
 
@@ -164,14 +176,26 @@ export const FIELD_TYPES: readonly FieldType[] = [
   FieldType.State,
   FieldType.PostalCode,
   FieldType.Country,
+  FieldType.Gender,
   FieldType.Company,
   FieldType.JobTitle,
+  FieldType.TotalExperience,
+  FieldType.RelevantExperience,
+  FieldType.Skills,
+  FieldType.TechStack,
+  FieldType.ScaleExperience,
+  FieldType.ProfessionalSummary,
+  FieldType.ProjectSummary,
+  FieldType.HighestEducation,
+  FieldType.GraduationYear,
+  FieldType.DateOfBirth,
   FieldType.CurrentCtc,
   FieldType.ExpectedCtc,
   FieldType.NoticePeriod,
   FieldType.Resume,
   FieldType.LinkedIn,
   FieldType.GitHub,
+  FieldType.LeetCode,
   FieldType.Website,
   FieldType.Unknown
 ]

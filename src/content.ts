@@ -1,7 +1,7 @@
 import type { PlasmoCSConfig } from "plasmo"
 
 import {
-  runLayer1Autofill,
+  runAutofillPipeline,
   toLayer1RunSnapshot
 } from "~src/content/autofill/orchestrator"
 import { loadAutofillProfile } from "~src/content/autofill/profile"
@@ -12,7 +12,8 @@ import {
 
 export const config: PlasmoCSConfig = {
   matches: ["<all_urls>"],
-  run_at: "document_idle"
+  run_at: "document_idle",
+  all_frames: true
 }
 
 chrome.runtime.onMessage.addListener(
@@ -24,7 +25,9 @@ chrome.runtime.onMessage.addListener(
     void (async () => {
       try {
         const profile = await loadAutofillProfile()
-        const summary = runLayer1Autofill(profile, { debug: message.debug })
+        const summary = await runAutofillPipeline(profile, {
+          debug: message.debug
+        })
         const response: FillFormResponse = {
           ok: true,
           summary: toLayer1RunSnapshot(summary)

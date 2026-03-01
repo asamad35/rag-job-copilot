@@ -1,7 +1,6 @@
 import {
   Evidence,
   ExtractedSignals,
-  FIELD_TYPES,
   FieldType,
   LayerStatus,
   ScoredLayer1Field,
@@ -12,6 +11,11 @@ import {
   getMatchesFromText,
   isGenericText
 } from "~src/content/autofill/layer1/vocabulary"
+import {
+  clamp,
+  createBaseTypeScores,
+  getTopTwoScoredTypes
+} from "~src/content/autofill/scoring-utils"
 
 const ACCEPT_THRESHOLD = 0.9
 const REVIEW_THRESHOLD = 0.5
@@ -38,31 +42,121 @@ const HIGH_PRIORITY_SIGNALS = new Set<SignalType>([
   SignalType.Autocomplete
 ])
 
-const clamp = (value: number, min: number, max: number): number =>
-  Math.min(max, Math.max(min, value))
+const STRONG_FIRST_NAME_PATTERNS = [
+  /(^|[^a-z0-9])(first|given)[ _-]?name([^a-z0-9]|$)/i,
+  /(^|[^a-z0-9])fname([^a-z0-9]|$)/i
+]
 
-const createBaseTypeScores = (): Record<FieldType, number> => {
-  const scores = {} as Record<FieldType, number>
-  for (const fieldType of FIELD_TYPES) {
-    scores[fieldType] = 0
+const STRONG_LAST_NAME_PATTERNS = [
+  /(^|[^a-z0-9])(last|family|sur)[ _-]?name([^a-z0-9]|$)/i,
+  /(^|[^a-z0-9])lname([^a-z0-9]|$)/i
+]
+
+const FIRST_NAME_PLACEHOLDER_HINTS = new Set(["first", "first name", "given name"])
+const LAST_NAME_PLACEHOLDER_HINTS = new Set(["last", "last name", "family name"])
+const FULL_NAME_LABEL_HINTS = new Set([
+  "name",
+  "your name",
+  "full name",
+  "candidate name"
+])
+
+const normalizeHintText = (value: string): string =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ")
+
+const hasPatternSignalMatch = (
+  values: string[],
+  patterns: readonly RegExp[]
+): boolean =>
+  values.some((value) => patterns.some((pattern) => pattern.test(value)))
+
+const hasStrongFirstNameSignal = (signals: ExtractedSignals): boolean => {
+  const idLikeValues = [
+    ...(signals[SignalType.Name] ?? []),
+    ...(signals[SignalType.Id] ?? []),
+    ...(signals[SignalType.Autocomplete] ?? [])
+  ]
+
+  if (hasPatternSignalMatch(idLikeValues, STRONG_FIRST_NAME_PATTERNS)) {
+    return true
   }
-  return scores
+
+  const normalizedPlaceholders = (signals[SignalType.Placeholder] ?? []).map(
+    normalizeHintText
+  )
+
+  const hasFirstPlaceholder = normalizedPlaceholders.some((placeholder) =>
+    FIRST_NAME_PLACEHOLDER_HINTS.has(placeholder)
+  )
+
+  return hasFirstPlaceholder && hasPatternSignalMatch(idLikeValues, [/first|given/i])
 }
 
-const getTopTwoScoredTypes = (typeScores: Record<FieldType, number>) => {
-  const sorted = [...FIELD_TYPES]
-    .filter((fieldType) => fieldType !== FieldType.Unknown)
-    .sort((left, right) => typeScores[right] - typeScores[left])
+const hasStrongLastNameSignal = (signals: ExtractedSignals): boolean => {
+  const idLikeValues = [
+    ...(signals[SignalType.Name] ?? []),
+    ...(signals[SignalType.Id] ?? []),
+    ...(signals[SignalType.Autocomplete] ?? [])
+  ]
 
-  const topType = sorted[0] ?? FieldType.Unknown
-  const secondType = sorted[1] ?? FieldType.Unknown
-
-  return {
-    topType,
-    topScore: typeScores[topType] ?? 0,
-    secondType,
-    secondScore: typeScores[secondType] ?? 0
+  if (hasPatternSignalMatch(idLikeValues, STRONG_LAST_NAME_PATTERNS)) {
+    return true
   }
+
+  const normalizedPlaceholders = (signals[SignalType.Placeholder] ?? []).map(
+    normalizeHintText
+  )
+
+  const hasLastPlaceholder = normalizedPlaceholders.some((placeholder) =>
+    LAST_NAME_PLACEHOLDER_HINTS.has(placeholder)
+  )
+
+  return hasLastPlaceholder && hasPatternSignalMatch(idLikeValues, [/last|family|sur/i])
+}
+
+const hasStrongFullNameSignal = (signals: ExtractedSignals): boolean => {
+  const labelValues = [
+    ...(signals[SignalType.LabelFor] ?? []),
+    ...(signals[SignalType.LabelWrap] ?? []),
+    ...(signals[SignalType.AriaLabelledBy] ?? []),
+    ...(signals[SignalType.AriaLabel] ?? [])
+  ].map(normalizeHintText)
+
+  if (labelValues.length === 0) {
+    return false
+  }
+
+  const hasStrongNameLabel = labelValues.some((value) =>
+    FULL_NAME_LABEL_HINTS.has(value)
+  )
+
+  if (!hasStrongNameLabel) {
+    return false
+  }
+
+  // Avoid forcing full-name when split first/last signals exist.
+  if (hasStrongFirstNameSignal(signals) || hasStrongLastNameSignal(signals)) {
+    return false
+  }
+
+  return true
+}
+
+const hasStrongCountrySignal = (signals: ExtractedSignals): boolean => {
+  const hintValues = [
+    ...(signals[SignalType.AriaLabel] ?? []),
+    ...(signals[SignalType.AriaLabelledBy] ?? []),
+    ...(signals[SignalType.Name] ?? []),
+    ...(signals[SignalType.Id] ?? [])
+  ].map(normalizeHintText)
+
+  return hintValues.some(
+    (value) => value.includes("country selector") || value === "country"
+  )
 }
 
 const hasStrongConflict = (evidence: Evidence[]): boolean => {
@@ -171,6 +265,14 @@ export const scoreLayer1Signals = (
     }
   }
 
+  const hasCountrySelectorSignal = hasStrongCountrySignal(signals)
+  if (hasCountrySelectorSignal) {
+    typeScores[FieldType.Country] = Math.max(typeScores[FieldType.Country], 1.2)
+    typeScores[FieldType.Phone] = Number(
+      (typeScores[FieldType.Phone] * 0.35).toFixed(4)
+    )
+  }
+
   const { topType, topScore, secondScore } = getTopTwoScoredTypes(typeScores)
 
   const conflictPenalty = hasStrongConflict(evidence) ? CONFLICT_PENALTY : 0
@@ -178,10 +280,39 @@ export const scoreLayer1Signals = (
     ? GENERIC_TEXT_PENALTY
     : 0
 
-  const adjustedTopScore = Math.max(
+  let adjustedTopScore = Math.max(
     0,
     topScore - conflictPenalty - genericPenalty
   )
+
+  if (
+    topType === FieldType.FirstName &&
+    hasStrongFirstNameSignal(signals)
+  ) {
+    adjustedTopScore = Math.max(adjustedTopScore, 0.95)
+  }
+
+  if (
+    topType === FieldType.LastName &&
+    hasStrongLastNameSignal(signals)
+  ) {
+    adjustedTopScore = Math.max(adjustedTopScore, 0.95)
+  }
+
+  if (
+    topType === FieldType.FullName &&
+    hasStrongFullNameSignal(signals)
+  ) {
+    adjustedTopScore = Math.max(adjustedTopScore, 0.92)
+  }
+
+  if (
+    topType === FieldType.Country &&
+    hasStrongCountrySignal(signals)
+  ) {
+    adjustedTopScore = Math.max(adjustedTopScore, 0.95)
+  }
+
   const absScore = clamp(adjustedTopScore, 0, 1)
   const marginScore = clamp(
     (adjustedTopScore - secondScore) / MARGIN_DIVISOR,

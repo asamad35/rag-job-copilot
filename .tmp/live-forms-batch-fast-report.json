@@ -1,0 +1,279 @@
+{
+  "aggregate": {
+    "runLabel": "mopid-final-report-latest",
+    "targetFile": "/Users/caw-d/Desktop/rag-job-copilot/scripts/live-target-mopid.json",
+    "attemptedTargets": 1,
+    "successfulTargets": 1,
+    "failedTargets": 0,
+    "totals": {
+      "discovered": 16,
+      "resolved": 13,
+      "ambiguous": 0,
+      "unresolved": 3,
+      "layer2Resolved": 0
+    },
+    "globalResolvedRate": 0.8125
+  },
+  "reports": [
+    {
+      "target": {
+        "name": "Mopid Job Apply",
+        "url": "https://start.mopid.me/jobapply/?jobId=542-d4074&source=job-board&igbTracker=882343874"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 16,
+        "resolved": 13,
+        "ambiguous": 0,
+        "unresolved": 3,
+        "layer2Resolved": 0,
+        "resolvedRate": 0.8125
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-10",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "react-select-5-input",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-12",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "react-select-6-input",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-14",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "react-select-7-input",
+            "autocomplete": "off"
+          }
+        }
+      ],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "firstName",
+            "placeholder": "First Name",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-2",
+          "fieldType": "last_name",
+          "fieldName": "Last Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "lastName",
+            "placeholder": "Last Name",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-3",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "tel"
+          }
+        },
+        {
+          "fieldId": "field-4",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "tel"
+          }
+        },
+        {
+          "fieldId": "field-5",
+          "fieldType": "email",
+          "fieldName": "Email",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "email",
+            "placeholder": "Email",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-6",
+          "fieldType": "total_experience",
+          "fieldName": "Total Experience",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "experience",
+            "placeholder": "Enter just years, eg. 4.2",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-8",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file"
+          }
+        },
+        {
+          "fieldId": "field-9",
+          "fieldType": "current_ctc",
+          "fieldName": "Current CTC",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "placeholder": "Current annual pay (eg. 2000000)",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-11",
+          "fieldType": "current_ctc",
+          "fieldName": "Current CTC",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "placeholder": "Current annual pay (eg. 2000000)",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-13",
+          "fieldType": "expected_ctc",
+          "fieldName": "Expected CTC",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "placeholder": "Expected annual pay (eg. 2000000)",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-15",
+          "fieldType": "notice_period",
+          "fieldName": "Notice Period",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "noticePeriod",
+            "placeholder": "Number of Days",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-16",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "button",
+            "role": "combobox",
+            "ariaLabel": "Country selector"
+          }
+        },
+        {
+          "fieldId": "field-18",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "button",
+            "role": "combobox",
+            "ariaLabel": "Country selector"
+          }
+        }
+      ]
+    }
+  ]
+}

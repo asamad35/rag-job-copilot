@@ -1,6 +1,8 @@
 import { collectLabelLikeCandidates } from "~src/content/autofill/layer2/layer2-candidates"
 import { evaluateFieldWithLayer2 } from "~src/content/autofill/layer2/layer2-scoring"
 import {
+  ControlKind,
+  FieldType,
   Layer1Result,
   LayerStatus,
   ResolutionLayer
@@ -10,16 +12,22 @@ interface Layer2RefinementOptions {
   debug?: boolean
 }
 
-const LAYER1_RESOLUTION: ResolutionLayer = "layer1"
 const LAYER2_RESOLUTION: ResolutionLayer = "layer2"
 
 const hasLayer2TargetStatus = (result: Layer1Result): boolean =>
-  result.status === LayerStatus.Ambiguous || result.status === LayerStatus.Unresolved
+  result.status === LayerStatus.Ambiguous ||
+  result.status === LayerStatus.Unresolved
 
-const applyLayer2Decision = (result: Layer1Result): Layer1Result => ({
-  ...result,
-  resolutionLayer: result.resolutionLayer ?? LAYER1_RESOLUTION
-})
+const shouldAcceptLayer2Resolution = (
+  result: Layer1Result,
+  fieldType: FieldType
+): boolean => {
+  if (result.controlKind !== ControlKind.File) {
+    return true
+  }
+
+  return fieldType === FieldType.Resume
+}
 
 export const refineResultsWithLayer2 = (
   results: Layer1Result[],
@@ -28,27 +36,32 @@ export const refineResultsWithLayer2 = (
   const candidates = collectLabelLikeCandidates(document)
 
   const refined = results.map((result) => {
-    const baseResult = applyLayer2Decision(result)
-
-    if (!hasLayer2TargetStatus(baseResult)) {
-      return baseResult
+    if (!hasLayer2TargetStatus(result)) {
+      return result
     }
 
-    const decision = evaluateFieldWithLayer2(baseResult, candidates)
+    const decision = evaluateFieldWithLayer2(result, candidates)
 
     if (!decision) {
-      return baseResult
+      return result
     }
 
     if (decision.status !== LayerStatus.Resolved) {
       return {
-        ...baseResult,
-        layer2Match: decision.match ?? baseResult.layer2Match
+        ...result,
+        layer2Match: decision.match ?? result.layer2Match
+      }
+    }
+
+    if (!shouldAcceptLayer2Resolution(result, decision.fieldType)) {
+      return {
+        ...result,
+        layer2Match: decision.match ?? result.layer2Match
       }
     }
 
     return {
-      ...baseResult,
+      ...result,
       fieldType: decision.fieldType,
       confidence: decision.confidence,
       status: decision.status,

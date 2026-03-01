@@ -1,0 +1,3671 @@
+{
+  "aggregate": {
+    "runLabel": "plus10-train-final",
+    "targetFile": "/Users/caw-d/Desktop/rag-job-copilot/scripts/live-targets-plus10.json",
+    "attemptedTargets": 10,
+    "successfulTargets": 10,
+    "failedTargets": 0,
+    "totals": {
+      "discovered": 224,
+      "resolved": 106,
+      "ambiguous": 0,
+      "unresolved": 118,
+      "layer2Resolved": 4
+    },
+    "globalResolvedRate": 0.4732
+  },
+  "reports": [
+    {
+      "target": {
+        "name": "Greenhouse+ - GitLab",
+        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8231973002"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 23,
+        "resolved": 11,
+        "ambiguous": 0,
+        "unresolved": 12,
+        "layer2Resolved": 0,
+        "resolvedRate": 0.4783
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-8",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "cover_letter"
+          }
+        },
+        {
+          "fieldId": "field-11",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_33695954002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-13",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_33695955002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-18",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_33695958002",
+            "ariaLabel": "GitLab Username"
+          }
+        },
+        {
+          "fieldId": "field-22",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_33695961002",
+            "ariaLabel": "It is important to us to create an accessible and inclusive interview experience. Please let us know if there are any adjustments we can make to assist you during the hiring and interview process."
+          }
+        },
+        {
+          "fieldId": "field-23",
+          "fieldType": "city",
+          "fieldName": "City",
+          "status": "unresolved",
+          "confidence": 0.0385,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_33695962002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-25",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_33695963002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-27",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35103939002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-29",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "gender",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-30",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "hispanic_ethnicity",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-31",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "veteran_status",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-32",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "disability_status",
+            "autocomplete": "off"
+          }
+        }
+      ],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "first_name",
+            "ariaLabel": "First Name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "fieldId": "field-2",
+          "fieldType": "last_name",
+          "fieldName": "Last Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "last_name",
+            "ariaLabel": "Last Name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "fieldId": "field-3",
+          "fieldType": "email",
+          "fieldName": "Email",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "email",
+            "ariaLabel": "Email",
+            "autocomplete": "email"
+          }
+        },
+        {
+          "fieldId": "field-4",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "country",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-6",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "tel",
+            "idAttr": "phone",
+            "ariaLabel": "Phone",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-7",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 0.9,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "resume"
+          }
+        },
+        {
+          "fieldId": "field-9",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_33695952002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-15",
+          "fieldType": "skills",
+          "fieldName": "Skills",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_33695956002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-17",
+          "fieldType": "linkedin",
+          "fieldName": "LinkedIn",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_33695957002",
+            "ariaLabel": "LinkedIn Profile"
+          }
+        },
+        {
+          "fieldId": "field-19",
+          "fieldType": "company",
+          "fieldName": "Company",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_33695959002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-21",
+          "fieldType": "full_name",
+          "fieldName": "Full Name",
+          "status": "resolved",
+          "confidence": 0.93,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_33695960002",
+            "ariaLabel": "What's the name you'd prefer us to use throughout the interview process?"
+          }
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Greenhouse+ - Coursera",
+        "url": "https://job-boards.greenhouse.io/coursera/jobs/5734198004"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 17,
+        "resolved": 12,
+        "ambiguous": 0,
+        "unresolved": 5,
+        "layer2Resolved": 0,
+        "resolvedRate": 0.7059
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-10",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "cover_letter"
+          }
+        },
+        {
+          "fieldId": "field-12",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "unresolved",
+          "confidence": 0.0192,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_14837156004",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-14",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_14837157004",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-21",
+          "fieldType": "job_title",
+          "fieldName": "Job Title",
+          "status": "unresolved",
+          "confidence": 0.0592,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_15331490004",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-23",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "question_14837160004"
+          }
+        }
+      ],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "first_name",
+            "ariaLabel": "First Name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "fieldId": "field-2",
+          "fieldType": "last_name",
+          "fieldName": "Last Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "last_name",
+            "ariaLabel": "Last Name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "fieldId": "field-3",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "preferred_name",
+            "ariaLabel": "Preferred First Name"
+          }
+        },
+        {
+          "fieldId": "field-4",
+          "fieldType": "email",
+          "fieldName": "Email",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "email",
+            "ariaLabel": "Email",
+            "autocomplete": "email"
+          }
+        },
+        {
+          "fieldId": "field-5",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "country",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-8",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "tel",
+            "idAttr": "phone",
+            "ariaLabel": "Phone",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-9",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 0.9,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "resume"
+          }
+        },
+        {
+          "fieldId": "field-11",
+          "fieldType": "linkedin",
+          "fieldName": "LinkedIn",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_14837155004",
+            "ariaLabel": "LinkedIn Profile"
+          }
+        },
+        {
+          "fieldId": "field-16",
+          "fieldType": "company",
+          "fieldName": "Company",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_14837161004",
+            "ariaLabel": "Current Company"
+          }
+        },
+        {
+          "fieldId": "field-17",
+          "fieldType": "job_title",
+          "fieldName": "Job Title",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_14837162004",
+            "ariaLabel": "Current Title"
+          }
+        },
+        {
+          "fieldId": "field-18",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_14837158004",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-20",
+          "fieldType": "city",
+          "fieldName": "City",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_14837159004",
+            "ariaLabel": "What city and province do you currently reside in?"
+          }
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Greenhouse+ - Nubank",
+        "url": "https://job-boards.greenhouse.io/nubank/jobs/7293818"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 18,
+        "resolved": 11,
+        "ambiguous": 0,
+        "unresolved": 7,
+        "layer2Resolved": 0,
+        "resolvedRate": 0.6111
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-11",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "cover_letter"
+          }
+        },
+        {
+          "fieldId": "field-13",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_61290876",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-16",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_60582558",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-18",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_60624800",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-22",
+          "fieldType": "job_title",
+          "fieldName": "Job Title",
+          "status": "unresolved",
+          "confidence": 0.0561,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "textarea",
+            "idAttr": "question_60582559",
+            "ariaLabel": "Have you worked directly with Product Designers and UX Researchers to co-design user journeys and create product copy? If yes, briefly describe one project (your role, how you partnered with design/research, and the outcome or impact)."
+          }
+        },
+        {
+          "fieldId": "field-23",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "textarea",
+            "idAttr": "question_60624669",
+            "ariaLabel": "Have you proposed, run, or analyzed A/B tests or other content research (moderated/unmoderated tests, surveys) to improve content? If yes, briefly describe one test/study and its result or key learning (method + outcome)."
+          }
+        },
+        {
+          "fieldId": "field-24",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_60624801",
+            "autocomplete": "off"
+          }
+        }
+      ],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "first_name",
+            "ariaLabel": "First Name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "fieldId": "field-2",
+          "fieldType": "last_name",
+          "fieldName": "Last Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "last_name",
+            "ariaLabel": "Last Name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "fieldId": "field-3",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "preferred_name",
+            "ariaLabel": "Preferred First Name"
+          }
+        },
+        {
+          "fieldId": "field-4",
+          "fieldType": "email",
+          "fieldName": "Email",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "email",
+            "ariaLabel": "Email",
+            "autocomplete": "email"
+          }
+        },
+        {
+          "fieldId": "field-5",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "country",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-7",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "tel",
+            "idAttr": "phone",
+            "ariaLabel": "Phone",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-8",
+          "fieldType": "city",
+          "fieldName": "City",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "candidate-location",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-10",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 0.9,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "resume"
+          }
+        },
+        {
+          "fieldId": "field-12",
+          "fieldType": "linkedin",
+          "fieldName": "LinkedIn",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_60582556",
+            "ariaLabel": "LinkedIn Profile"
+          }
+        },
+        {
+          "fieldId": "field-15",
+          "fieldType": "website",
+          "fieldName": "Website",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_60624668",
+            "ariaLabel": "Portfolio"
+          }
+        },
+        {
+          "fieldId": "field-20",
+          "fieldType": "total_experience",
+          "fieldName": "Total Experience",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_60582560",
+            "autocomplete": "off"
+          }
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Greenhouse+ - Chime",
+        "url": "https://job-boards.greenhouse.io/chime/jobs/8342770002?gh_jid=8342770002"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 21,
+        "resolved": 8,
+        "ambiguous": 0,
+        "unresolved": 13,
+        "layer2Resolved": 0,
+        "resolvedRate": 0.381
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-10",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "cover_letter"
+          }
+        },
+        {
+          "fieldId": "field-12",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_34633796002",
+            "ariaLabel": "How did you hear about this job?"
+          }
+        },
+        {
+          "fieldId": "field-13",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_34633797002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-15",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_34633798002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-17",
+          "fieldType": "job_title",
+          "fieldName": "Job Title",
+          "status": "unresolved",
+          "confidence": 0.0592,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_34633799002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-19",
+          "fieldType": "company",
+          "fieldName": "Company",
+          "status": "unresolved",
+          "confidence": 0.2926,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_34633801002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-21",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "4024620002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-23",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "4024621002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-25",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "4024622002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-27",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "4024623002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-29",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "4024624002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-31",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "4024625002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-33",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "boolean",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "checkbox",
+            "nameAttr": "gdpr_demographic_data_consent_given",
+            "idAttr": "gdpr_demographic_data_consent_given_1"
+          }
+        }
+      ],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "first_name",
+            "ariaLabel": "First Name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "fieldId": "field-2",
+          "fieldType": "last_name",
+          "fieldName": "Last Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "last_name",
+            "ariaLabel": "Last Name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "fieldId": "field-3",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "preferred_name",
+            "ariaLabel": "Preferred First Name"
+          }
+        },
+        {
+          "fieldId": "field-4",
+          "fieldType": "email",
+          "fieldName": "Email",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "email",
+            "ariaLabel": "Email",
+            "autocomplete": "email"
+          }
+        },
+        {
+          "fieldId": "field-5",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "country",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-8",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "tel",
+            "idAttr": "phone",
+            "ariaLabel": "Phone",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-9",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 0.9,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "resume"
+          }
+        },
+        {
+          "fieldId": "field-11",
+          "fieldType": "linkedin",
+          "fieldName": "LinkedIn",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_34633795002",
+            "ariaLabel": "LinkedIn Profile"
+          }
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Greenhouse+ - SpaceX",
+        "url": "https://job-boards.greenhouse.io/spacex/jobs/8420343002?gh_jid=8420343002"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 30,
+        "resolved": 10,
+        "ambiguous": 0,
+        "unresolved": 20,
+        "layer2Resolved": 0,
+        "resolvedRate": 0.3333
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-9",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "cover_letter"
+          }
+        },
+        {
+          "fieldId": "field-13",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "question_35403228002"
+          }
+        },
+        {
+          "fieldId": "field-14",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_35403229002",
+            "ariaLabel": "How did you hear about this job?"
+          }
+        },
+        {
+          "fieldId": "field-15",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_35403230002",
+            "ariaLabel": "Please specify"
+          }
+        },
+        {
+          "fieldId": "field-16",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35403231002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-18",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35403232002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-20",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35403233002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-22",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35403234002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-24",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35403235002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-26",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35403236002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-28",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35403237002[]",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-30",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35403238002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-32",
+          "fieldType": "job_title",
+          "fieldName": "Job Title",
+          "status": "unresolved",
+          "confidence": 0.0592,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35403239002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-34",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35403240002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-36",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_35403241002",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-38",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_35403242002",
+            "ariaLabel": "If (f) Other, please explain:"
+          }
+        },
+        {
+          "fieldId": "field-39",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "gender",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-40",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "hispanic_ethnicity",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-41",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "veteran_status",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-42",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "disability_status",
+            "autocomplete": "off"
+          }
+        }
+      ],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "first_name",
+            "ariaLabel": "First Name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "fieldId": "field-2",
+          "fieldType": "last_name",
+          "fieldName": "Last Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "last_name",
+            "ariaLabel": "Last Name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "fieldId": "field-3",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "preferred_name",
+            "ariaLabel": "Preferred First Name"
+          }
+        },
+        {
+          "fieldId": "field-4",
+          "fieldType": "email",
+          "fieldName": "Email",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "email",
+            "ariaLabel": "Email",
+            "autocomplete": "email"
+          }
+        },
+        {
+          "fieldId": "field-5",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "country",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-7",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "tel",
+            "idAttr": "phone",
+            "ariaLabel": "Phone",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-8",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 0.9,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "resume"
+          }
+        },
+        {
+          "fieldId": "field-10",
+          "fieldType": "linkedin",
+          "fieldName": "LinkedIn",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_35323597002",
+            "ariaLabel": "LinkedIn Profile"
+          }
+        },
+        {
+          "fieldId": "field-11",
+          "fieldType": "website",
+          "fieldName": "Website",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_35323598002",
+            "ariaLabel": "Website"
+          }
+        },
+        {
+          "fieldId": "field-12",
+          "fieldType": "linkedin",
+          "fieldName": "LinkedIn",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_35403227002",
+            "ariaLabel": "LinkedIn Profile"
+          }
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Greenhouse+ - Neuralink",
+        "url": "https://job-boards.greenhouse.io/neuralink/jobs/7565469003?gh_jid=7565469003"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 27,
+        "resolved": 9,
+        "ambiguous": 0,
+        "unresolved": 18,
+        "layer2Resolved": 0,
+        "resolvedRate": 0.3333
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-9",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "cover_letter"
+          }
+        },
+        {
+          "fieldId": "field-10",
+          "fieldType": "job_title",
+          "fieldName": "Job Title",
+          "status": "unresolved",
+          "confidence": 0.0561,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "textarea",
+            "idAttr": "question_29744933003",
+            "ariaLabel": "We look for evidence of exceptional ability. Please provide us with 3-4 examples highlighting your exceptional ability, using quantitative metrics to display the impact on a product/project related to the requirements of the position you are applying for. Each bullet should be very concise— no longer than 3-4 sentences each and should capture the problem, solution, and result. We recommend starting with an action word (designed, led, built, promoted, launched, created, etc.) and be sure to include technical detail. This is your moment to WOW us! NOTE: Answering this question fully is the most important part of our interview process.\nFirst example:"
+          }
+        },
+        {
+          "fieldId": "field-11",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "textarea",
+            "idAttr": "question_29744934003",
+            "ariaLabel": "Second example:"
+          }
+        },
+        {
+          "fieldId": "field-12",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "textarea",
+            "idAttr": "question_29744935003",
+            "ariaLabel": "Third example:"
+          }
+        },
+        {
+          "fieldId": "field-13",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_29744936003",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-15",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_29744937003",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-18",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_29744939003",
+            "ariaLabel": "Additional Link"
+          }
+        },
+        {
+          "fieldId": "field-19",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_29744940003",
+            "ariaLabel": "Preferred Pronouns  "
+          }
+        },
+        {
+          "fieldId": "field-20",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "boolean",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "checkbox",
+            "nameAttr": "question_29744941003[]",
+            "idAttr": "question_29744941003[]_155459151003"
+          }
+        },
+        {
+          "fieldId": "field-24",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "boolean",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "checkbox",
+            "nameAttr": "question_29744943003[]",
+            "idAttr": "question_29744943003[]_155459153003"
+          }
+        },
+        {
+          "fieldId": "field-25",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_29744944003",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-27",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_29744945003",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-30",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "boolean",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "checkbox",
+            "nameAttr": "question_29744947003[]",
+            "idAttr": "question_29744947003[]_155459158003"
+          }
+        },
+        {
+          "fieldId": "field-42",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_29744948003",
+            "ariaLabel": "Please specify"
+          }
+        },
+        {
+          "fieldId": "field-43",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "gender",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-44",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "hispanic_ethnicity",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-45",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "veteran_status",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-46",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "disability_status",
+            "autocomplete": "off"
+          }
+        }
+      ],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "first_name",
+            "ariaLabel": "First Name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "fieldId": "field-2",
+          "fieldType": "last_name",
+          "fieldName": "Last Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "last_name",
+            "ariaLabel": "Last Name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "fieldId": "field-3",
+          "fieldType": "email",
+          "fieldName": "Email",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "email",
+            "ariaLabel": "Email",
+            "autocomplete": "email"
+          }
+        },
+        {
+          "fieldId": "field-4",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "country",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-7",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "tel",
+            "idAttr": "phone",
+            "ariaLabel": "Phone",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-8",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 0.9,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "resume"
+          }
+        },
+        {
+          "fieldId": "field-17",
+          "fieldType": "linkedin",
+          "fieldName": "LinkedIn",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_29744938003",
+            "ariaLabel": "LinkedIn Profile"
+          }
+        },
+        {
+          "fieldId": "field-22",
+          "fieldType": "company",
+          "fieldName": "Company",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_29744942003",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-29",
+          "fieldType": "notice_period",
+          "fieldName": "Notice Period",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_29744946003",
+            "ariaLabel": "Ideal start date in office"
+          }
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Greenhouse+ - Gusto",
+        "url": "https://job-boards.greenhouse.io/gusto/jobs/7522735"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 22,
+        "resolved": 11,
+        "ambiguous": 0,
+        "unresolved": 11,
+        "layer2Resolved": 0,
+        "resolvedRate": 0.5
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-12",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "cover_letter"
+          }
+        },
+        {
+          "fieldId": "field-13",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_62990006",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-28",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "unresolved",
+          "confidence": 0.0355,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_62630224",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-30",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_62630225",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-32",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "605",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-34",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "606",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-36",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "607",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-38",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "608",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-40",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "609",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-42",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "610",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-44",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "1012",
+            "autocomplete": "off"
+          }
+        }
+      ],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "first_name",
+            "ariaLabel": "First Name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "fieldId": "field-2",
+          "fieldType": "last_name",
+          "fieldName": "Last Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "last_name",
+            "ariaLabel": "Last Name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "fieldId": "field-3",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "preferred_name",
+            "ariaLabel": "Preferred First Name"
+          }
+        },
+        {
+          "fieldId": "field-4",
+          "fieldType": "email",
+          "fieldName": "Email",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "email",
+            "ariaLabel": "Email",
+            "autocomplete": "email"
+          }
+        },
+        {
+          "fieldId": "field-5",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "country",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-8",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "tel",
+            "idAttr": "phone",
+            "ariaLabel": "Phone",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-9",
+          "fieldType": "city",
+          "fieldName": "City",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "candidate-location",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-11",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 0.9,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "resume"
+          }
+        },
+        {
+          "fieldId": "field-15",
+          "fieldType": "postal_code",
+          "fieldName": "Postal Code",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_62630221",
+            "ariaLabel": "Zip Code / Postal Code (Non-U.S. based candidates, please enter \"00000\")"
+          }
+        },
+        {
+          "fieldId": "field-16",
+          "fieldType": "linkedin",
+          "fieldName": "LinkedIn",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_62630222",
+            "ariaLabel": "LinkedIn Profile"
+          }
+        },
+        {
+          "fieldId": "field-17",
+          "fieldType": "linkedin",
+          "fieldName": "LinkedIn",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "boolean",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "checkbox",
+            "nameAttr": "question_62630223[]",
+            "idAttr": "question_62630223[]_615753303"
+          }
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Greenhouse+ - Carta",
+        "url": "https://job-boards.greenhouse.io/carta/jobs/7639199003"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 21,
+        "resolved": 13,
+        "ambiguous": 0,
+        "unresolved": 8,
+        "layer2Resolved": 0,
+        "resolvedRate": 0.619
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-10",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "cover_letter"
+          }
+        },
+        {
+          "fieldId": "field-17",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_29777930003",
+            "ariaLabel": "Other"
+          }
+        },
+        {
+          "fieldId": "field-18",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "unresolved",
+          "confidence": 0.3225,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_29777931003",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-20",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_29777932003",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-24",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "gender",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-25",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "hispanic_ethnicity",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-26",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "veteran_status",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-27",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "disability_status",
+            "autocomplete": "off"
+          }
+        }
+      ],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "first_name",
+            "ariaLabel": "First Name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "fieldId": "field-2",
+          "fieldType": "last_name",
+          "fieldName": "Last Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "last_name",
+            "ariaLabel": "Last Name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "fieldId": "field-3",
+          "fieldType": "email",
+          "fieldName": "Email",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "email",
+            "ariaLabel": "Email",
+            "autocomplete": "email"
+          }
+        },
+        {
+          "fieldId": "field-4",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "country",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-7",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "tel",
+            "idAttr": "phone",
+            "ariaLabel": "Phone",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-8",
+          "fieldType": "city",
+          "fieldName": "City",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "candidate-location",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-9",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 0.9,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "resume"
+          }
+        },
+        {
+          "fieldId": "field-11",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_29777925003",
+            "autocomplete": "off"
+          }
+        },
+        {
+          "fieldId": "field-13",
+          "fieldType": "linkedin",
+          "fieldName": "LinkedIn",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_29777926003",
+            "ariaLabel": "LinkedIn Profile"
+          }
+        },
+        {
+          "fieldId": "field-14",
+          "fieldType": "github",
+          "fieldName": "GitHub",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_29777927003",
+            "ariaLabel": "GitHub"
+          }
+        },
+        {
+          "fieldId": "field-15",
+          "fieldType": "website",
+          "fieldName": "Website",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_29777928003",
+            "ariaLabel": "Portfolio"
+          }
+        },
+        {
+          "fieldId": "field-16",
+          "fieldType": "website",
+          "fieldName": "Website",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_29777929003",
+            "ariaLabel": "Website"
+          }
+        },
+        {
+          "fieldId": "field-22",
+          "fieldType": "city",
+          "fieldName": "City",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "role": "combobox",
+            "idAttr": "question_29777933003",
+            "autocomplete": "off"
+          }
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Greenhouse+ - Duolingo",
+        "url": "https://careers.duolingo.com/jobs/8151163002?gh_jid=8151163002"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 21,
+        "resolved": 10,
+        "ambiguous": 0,
+        "unresolved": 11,
+        "layer2Resolved": 3,
+        "resolvedRate": 0.4762
+      },
+      "lowConfidenceResolved": [
+        {
+          "fieldId": "field-6",
+          "fieldType": "city",
+          "fieldName": "City",
+          "status": "resolved",
+          "confidence": 0.851,
+          "resolutionLayer": "layer2",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "search",
+            "idAttr": "web-ui7"
+          }
+        }
+      ],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-8",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "cover_letter"
+          }
+        },
+        {
+          "fieldId": "field-11",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_33077318002"
+          }
+        },
+        {
+          "fieldId": "field-12",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "textarea",
+            "idAttr": "question_33077320002"
+          }
+        },
+        {
+          "fieldId": "field-13",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "textarea",
+            "idAttr": "question_33077321002"
+          }
+        },
+        {
+          "fieldId": "field-14",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "textarea",
+            "idAttr": "question_33077325002"
+          }
+        },
+        {
+          "fieldId": "field-16",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "search",
+            "idAttr": "web-ui25"
+          }
+        },
+        {
+          "fieldId": "field-18",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "search",
+            "idAttr": "web-ui28"
+          }
+        },
+        {
+          "fieldId": "field-20",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "search",
+            "idAttr": "web-ui31"
+          }
+        },
+        {
+          "fieldId": "field-21",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "number",
+            "idAttr": "educations[0].end_date.year"
+          }
+        },
+        {
+          "fieldId": "field-23",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "ul",
+            "role": "listbox",
+            "idAttr": "web-ui23"
+          }
+        },
+        {
+          "fieldId": "field-25",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "ul",
+            "role": "listbox",
+            "idAttr": "web-ui29"
+          }
+        }
+      ],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "first_name"
+          }
+        },
+        {
+          "fieldId": "field-2",
+          "fieldType": "last_name",
+          "fieldName": "Last Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "last_name"
+          }
+        },
+        {
+          "fieldId": "field-3",
+          "fieldType": "email",
+          "fieldName": "Email",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "email",
+            "idAttr": "email"
+          }
+        },
+        {
+          "fieldId": "field-4",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "tel",
+            "idAttr": "phone"
+          }
+        },
+        {
+          "fieldId": "field-6",
+          "fieldType": "city",
+          "fieldName": "City",
+          "status": "resolved",
+          "confidence": 0.851,
+          "resolutionLayer": "layer2",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "search",
+            "idAttr": "web-ui7"
+          }
+        },
+        {
+          "fieldId": "field-7",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 0.9,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "idAttr": "resume"
+          }
+        },
+        {
+          "fieldId": "field-9",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_33077314002"
+          }
+        },
+        {
+          "fieldId": "field-10",
+          "fieldType": "full_name",
+          "fieldName": "Full Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "question_33077315002"
+          }
+        },
+        {
+          "fieldId": "field-22",
+          "fieldType": "city",
+          "fieldName": "City",
+          "status": "resolved",
+          "confidence": 0.9793,
+          "resolutionLayer": "layer2",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "ul",
+            "role": "listbox",
+            "idAttr": "web-ui5"
+          }
+        },
+        {
+          "fieldId": "field-24",
+          "fieldType": "highest_education",
+          "fieldName": "Highest Education",
+          "status": "resolved",
+          "confidence": 0.9159,
+          "resolutionLayer": "layer2",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "ul",
+            "role": "listbox",
+            "idAttr": "web-ui26"
+          }
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "Greenhouse+ - Okta",
+        "url": "https://www.okta.com/company/careers/engineering/ai-infrastructure-architect-7122284/"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 24,
+        "resolved": 11,
+        "ambiguous": 0,
+        "unresolved": 13,
+        "layer2Resolved": 1,
+        "resolvedRate": 0.4583
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-10",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "boolean",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "radio",
+            "nameAttr": "cover_format",
+            "idAttr": "edit-cover-format-upload-pdf"
+          }
+        },
+        {
+          "fieldId": "field-12",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "nameAttr": "files[cover_letter]",
+            "idAttr": "edit-cover-letter-upload"
+          }
+        },
+        {
+          "fieldId": "field-17",
+          "fieldType": "country",
+          "fieldName": "Country",
+          "status": "unresolved",
+          "confidence": 0.0271,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "select",
+            "nameAttr": "question_59035855",
+            "idAttr": "edit-question-59035855",
+            "placeholder": "Are you legally authorized to work in the country you reside?"
+          }
+        },
+        {
+          "fieldId": "field-18",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "select",
+            "nameAttr": "question_59035856",
+            "idAttr": "edit-question-59035856",
+            "placeholder": "Will you now or in the future require Visa Sponsorship?"
+          }
+        },
+        {
+          "fieldId": "field-22",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "question_59035860",
+            "idAttr": "edit-question-59035860",
+            "placeholder": "If yes, please describe: "
+          }
+        },
+        {
+          "fieldId": "field-23",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "select",
+            "nameAttr": "question_59035861",
+            "idAttr": "edit-question-59035861",
+            "placeholder": "Have you worked for Okta in the past?"
+          }
+        },
+        {
+          "fieldId": "field-24",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "boolean",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "checkbox",
+            "nameAttr": "question_59035862[577372519]",
+            "idAttr": "edit-question-59035862-577372519"
+          }
+        },
+        {
+          "fieldId": "field-25",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "boolean",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "checkbox",
+            "nameAttr": "question_59035863[577372520]",
+            "idAttr": "edit-question-59035863-577372520"
+          }
+        },
+        {
+          "fieldId": "field-26",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "select",
+            "nameAttr": "question_59390020",
+            "idAttr": "edit-question-59390020",
+            "placeholder": "Do you live within 50 miles of our Bellevue office? If not, will you be open to relocation? "
+          }
+        },
+        {
+          "fieldId": "field-27",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "select",
+            "nameAttr": "compliance_section[disability_status][0]",
+            "idAttr": "edit-compliance-section-disability-status-0",
+            "placeholder": "DisabilityStatus"
+          }
+        },
+        {
+          "fieldId": "field-28",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "select",
+            "nameAttr": "compliance_section[veteran_status][0]",
+            "idAttr": "edit-compliance-section-veteran-status-0",
+            "placeholder": "VeteranStatus"
+          }
+        },
+        {
+          "fieldId": "field-29",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "select",
+            "nameAttr": "compliance_section[race][0]",
+            "idAttr": "edit-compliance-section-race-0",
+            "placeholder": "Race"
+          }
+        },
+        {
+          "fieldId": "field-30",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "select",
+            "nameAttr": "compliance_section[gender][0]",
+            "idAttr": "edit-compliance-section-gender-0",
+            "placeholder": "Gender"
+          }
+        }
+      ],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "first_name",
+          "fieldName": "First Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "first_name",
+            "idAttr": "edit-first-name",
+            "placeholder": "First Name"
+          }
+        },
+        {
+          "fieldId": "field-2",
+          "fieldType": "last_name",
+          "fieldName": "Last Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "last_name",
+            "idAttr": "edit-last-name",
+            "placeholder": "Last Name"
+          }
+        },
+        {
+          "fieldId": "field-3",
+          "fieldType": "email",
+          "fieldName": "Email",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "email",
+            "nameAttr": "email",
+            "idAttr": "edit-email",
+            "placeholder": "Email"
+          }
+        },
+        {
+          "fieldId": "field-4",
+          "fieldType": "phone",
+          "fieldName": "Phone",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "phone",
+            "idAttr": "edit-phone",
+            "placeholder": "Phone"
+          }
+        },
+        {
+          "fieldId": "field-5",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "boolean",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "radio",
+            "nameAttr": "resume_format",
+            "idAttr": "edit-resume-format-upload-pdf"
+          }
+        },
+        {
+          "fieldId": "field-7",
+          "fieldType": "resume",
+          "fieldName": "Resume",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "file",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "file",
+            "nameAttr": "files[resume]",
+            "idAttr": "edit-resume-upload"
+          }
+        },
+        {
+          "fieldId": "field-15",
+          "fieldType": "linkedin",
+          "fieldName": "LinkedIn",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "question_59035853",
+            "idAttr": "edit-question-59035853",
+            "placeholder": "LinkedIn Profile"
+          }
+        },
+        {
+          "fieldId": "field-16",
+          "fieldType": "website",
+          "fieldName": "Website",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "question_59035854",
+            "idAttr": "edit-question-59035854",
+            "placeholder": "Website"
+          }
+        },
+        {
+          "fieldId": "field-19",
+          "fieldType": "company",
+          "fieldName": "Company",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "select",
+            "nameAttr": "question_59035857",
+            "idAttr": "edit-question-59035857",
+            "placeholder": "To the best of your knowledge, do you have any family members / relatives or personal relationships at Okta or at any suppliers, partners, or vendors that have a business relationship with Okta?\n\n(For purposes of this question, a “family member / relative or personal relationship” is defined as close personal friends (including sexual and/or romantic relationships), close relatives (spouse, partner, children, cousins, aunts, uncles, nieces, nephews, grandparents or grandchildren), someone who lives in your household, or anyone else with whom you have a close enough personal relationship or connection that it could improperly bias your conduct or decision making or be perceived to be capable of impacting your conduct or decision making."
+          }
+        },
+        {
+          "fieldId": "field-20",
+          "fieldType": "full_name",
+          "fieldName": "Full Name",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer2",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "nameAttr": "question_59035858",
+            "idAttr": "edit-question-59035858",
+            "placeholder": "If yes, please identify name of person / vendor and describe relationship / association: "
+          }
+        },
+        {
+          "fieldId": "field-21",
+          "fieldType": "company",
+          "fieldName": "Company",
+          "status": "resolved",
+          "confidence": 1,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "select",
+            "nameAttr": "question_59035859",
+            "idAttr": "edit-question-59035859",
+            "placeholder": "Do you have any outside business activity(ies) (advisory, consulting, or board roles, or side businesses) that you would continue engaging in or plan to engage in if you joined Okta in this role?\n"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -16,10 +16,10 @@ const countByStatus = (
   status: LayerStatus
 ): number => summary.results.filter((result) => result.status === status).length
 
-export const runLayer1Autofill = (
+export const runAutofillPipeline = (
   profile: AutofillProfile,
   options: Layer1RunOptions = {}
-): Layer1RunSummary => {
+): Promise<Layer1RunSummary> => {
   const discoveredFields = discoverFormFields(document)
   const layer1Results = discoveredFields.map((field) =>
     evaluateFieldWithLayer1(field)
@@ -27,38 +27,38 @@ export const runLayer1Autofill = (
   const results = refineResultsWithLayer2(layer1Results, {
     debug: options.debug
   })
+  return fillResolvedFields(results, profile).then((fillActions) => {
+    const summary: Layer1RunSummary = {
+      totalDiscovered: discoveredFields.length,
+      resolved: 0,
+      ambiguous: 0,
+      unresolved: 0,
+      filled: fillActions.filter((action) => action.filled).length,
+      skipped: fillActions.filter((action) => !action.filled).length,
+      results,
+      fillActions
+    }
 
-  console.log({ results })
-  const fillActions = fillResolvedFields(results, profile)
+    summary.resolved = countByStatus(summary, LayerStatus.Resolved)
+    summary.ambiguous = countByStatus(summary, LayerStatus.Ambiguous)
+    summary.unresolved = countByStatus(summary, LayerStatus.Unresolved)
 
-  const summary: Layer1RunSummary = {
-    totalDiscovered: discoveredFields.length,
-    resolved: 0,
-    ambiguous: 0,
-    unresolved: 0,
-    filled: fillActions.filter((action) => action.filled).length,
-    skipped: fillActions.filter((action) => !action.filled).length,
-    results,
-    fillActions
-  }
+    if (options.debug) {
+      console.group("[Autofill Summary]")
+      console.info("Total fields:", summary.totalDiscovered)
+      console.info("Resolved:", summary.resolved)
+      console.info("Ambiguous:", summary.ambiguous)
+      console.info("Unresolved:", summary.unresolved)
+      console.info("Filled:", summary.filled)
+      console.info("Skipped:", summary.skipped)
+      console.groupEnd()
+    }
 
-  summary.resolved = countByStatus(summary, LayerStatus.Resolved)
-  summary.ambiguous = countByStatus(summary, LayerStatus.Ambiguous)
-  summary.unresolved = countByStatus(summary, LayerStatus.Unresolved)
-
-  if (options.debug) {
-    console.group("[Layer1 Autofill Summary]")
-    console.info("Total fields:", summary.totalDiscovered)
-    console.info("Resolved:", summary.resolved)
-    console.info("Ambiguous:", summary.ambiguous)
-    console.info("Unresolved:", summary.unresolved)
-    console.info("Filled:", summary.filled)
-    console.info("Skipped:", summary.skipped)
-    console.groupEnd()
-  }
-
-  return summary
+    return summary
+  })
 }
+
+export const runLayer1Autofill = runAutofillPipeline
 
 export const toLayer1RunSnapshot = (
   summary: Layer1RunSummary

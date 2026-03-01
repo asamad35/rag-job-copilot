@@ -1,0 +1,1463 @@
+[
+  {
+    "target": {
+      "name": "Anthropic",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5074975008"
+    },
+    "metrics": {
+      "totalDiscovered": 19,
+      "resolved": 8,
+      "ambiguous": 1,
+      "unresolved": 10,
+      "layer2Resolved": 0
+    },
+    "results": [
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "first_name",
+          "ariaLabel": "First Name",
+          "autocomplete": "given-name"
+        },
+        "fieldId": "field-1",
+        "fieldName": "First Name",
+        "controlKind": "textual",
+        "fieldType": "first_name",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "First Name*",
+            "matchedType": "first_name",
+            "weight": 1.2
+          },
+          {
+            "signal": "label_for",
+            "rawValue": "First Name*",
+            "matchedType": "full_name",
+            "weight": 0.5
+          },
+          {
+            "signal": "autocomplete",
+            "rawValue": "given-name",
+            "matchedType": "first_name",
+            "weight": 0.85
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "First Name",
+            "matchedType": "first_name",
+            "weight": 0.96
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "First Name",
+            "matchedType": "full_name",
+            "weight": 0.4
+          },
+          {
+            "signal": "id",
+            "rawValue": "first_name",
+            "matchedType": "first_name",
+            "weight": 0.78
+          },
+          {
+            "signal": "id",
+            "rawValue": "first_name",
+            "matchedType": "full_name",
+            "weight": 0.325
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "last_name",
+          "ariaLabel": "Last Name",
+          "autocomplete": "family-name"
+        },
+        "fieldId": "field-2",
+        "fieldName": "Last Name",
+        "controlKind": "textual",
+        "fieldType": "last_name",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Last Name*",
+            "matchedType": "last_name",
+            "weight": 1.2
+          },
+          {
+            "signal": "label_for",
+            "rawValue": "Last Name*",
+            "matchedType": "full_name",
+            "weight": 0.5
+          },
+          {
+            "signal": "autocomplete",
+            "rawValue": "family-name",
+            "matchedType": "last_name",
+            "weight": 0.85
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "Last Name",
+            "matchedType": "last_name",
+            "weight": 0.96
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "Last Name",
+            "matchedType": "full_name",
+            "weight": 0.4
+          },
+          {
+            "signal": "id",
+            "rawValue": "last_name",
+            "matchedType": "last_name",
+            "weight": 0.78
+          },
+          {
+            "signal": "id",
+            "rawValue": "last_name",
+            "matchedType": "full_name",
+            "weight": 0.325
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "email",
+          "ariaLabel": "Email",
+          "autocomplete": "email"
+        },
+        "fieldId": "field-3",
+        "fieldName": "Email",
+        "controlKind": "textual",
+        "fieldType": "email",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Email*",
+            "matchedType": "email",
+            "weight": 1.2
+          },
+          {
+            "signal": "autocomplete",
+            "rawValue": "email",
+            "matchedType": "email",
+            "weight": 0.85
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "Email",
+            "matchedType": "email",
+            "weight": 0.96
+          },
+          {
+            "signal": "id",
+            "rawValue": "email",
+            "matchedType": "email",
+            "weight": 0.78
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "country",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-4",
+        "fieldName": "Country",
+        "controlKind": "textual",
+        "fieldType": "country",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Country*",
+            "matchedType": "country",
+            "weight": 1.2
+          },
+          {
+            "signal": "aria_labelledby",
+            "rawValue": "Country*",
+            "matchedType": "country",
+            "weight": 1.08
+          },
+          {
+            "signal": "id",
+            "rawValue": "country",
+            "matchedType": "country",
+            "weight": 0.78
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "tel",
+          "idAttr": "phone",
+          "ariaLabel": "Phone",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-7",
+        "fieldName": "Phone",
+        "controlKind": "textual",
+        "fieldType": "phone",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Phone*",
+            "matchedType": "phone",
+            "weight": 1.2
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "Phone",
+            "matchedType": "phone",
+            "weight": 0.96
+          },
+          {
+            "signal": "id",
+            "rawValue": "phone",
+            "matchedType": "phone",
+            "weight": 0.78
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "file",
+          "idAttr": "resume"
+        },
+        "fieldId": "field-8",
+        "fieldName": "Resume",
+        "controlKind": "file",
+        "fieldType": "resume",
+        "confidence": 0.9,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "id",
+            "rawValue": "resume",
+            "matchedType": "resume",
+            "weight": 0.8125
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "question_14523595008",
+          "ariaLabel": "LinkedIn Profile"
+        },
+        "fieldId": "field-9",
+        "fieldName": "LinkedIn",
+        "controlKind": "textual",
+        "fieldType": "linkedin",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "LinkedIn Profile*",
+            "matchedType": "linkedin",
+            "weight": 1.3
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "LinkedIn Profile",
+            "matchedType": "linkedin",
+            "weight": 1.04
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "question_14523596008",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-10",
+        "fieldName": "Job Title",
+        "controlKind": "textual",
+        "fieldType": "job_title",
+        "confidence": 0.3254,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Are you open to relocation for this role? *",
+            "matchedType": "job_title",
+            "weight": 0.11
+          },
+          {
+            "signal": "aria_labelledby",
+            "rawValue": "Are you open to relocation for this role? *",
+            "matchedType": "job_title",
+            "weight": 0.099
+          }
+        ],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 13,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.22285714285714286,
+          "combinedScore": 0.22285714285714286
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "question_14523597008",
+          "ariaLabel": "What is the address from which you plan on working? If you would need to relocate, please type \"relocating\"."
+        },
+        "fieldId": "field-12",
+        "fieldName": "Address Line 1",
+        "controlKind": "textual",
+        "fieldType": "address_line1",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "What is the address from which you plan on working? If you would need to relocate, please type \"relocating\".",
+            "matchedType": "address_line1",
+            "weight": 0.7
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "What is the address from which you plan on working? If you would need to relocate, please type \"relocating\".",
+            "matchedType": "address_line1",
+            "weight": 0.5599999999999999
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "question_14523587008",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-13",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 13,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.22285714285714286,
+          "combinedScore": 0.22285714285714286
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "question_14523590008",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-15",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 13,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.22285714285714286,
+          "combinedScore": 0.22285714285714286
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "textarea",
+          "idAttr": "question_14523591008",
+          "ariaLabel": "Why Anthropic?"
+        },
+        "fieldId": "field-17",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 8,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.27444444444444444,
+          "combinedScore": 0.27444444444444444
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "question_14523592008",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-18",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 13,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.22285714285714286,
+          "combinedScore": 0.22285714285714286
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "question_14523593008",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-20",
+        "fieldName": "Country",
+        "controlKind": "textual",
+        "fieldType": "country",
+        "confidence": 0.6192,
+        "status": "ambiguous",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Will you now or will you in the future require employment visa sponsorship to work in the country in which the job you're applying for is located? *",
+            "matchedType": "country",
+            "weight": 0.24
+          },
+          {
+            "signal": "aria_labelledby",
+            "rawValue": "Will you now or will you in the future require employment visa sponsorship to work in the country in which the job you're applying for is located? *",
+            "matchedType": "country",
+            "weight": 0.216
+          }
+        ],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "Phone",
+          "lcaDistance": 14,
+          "sameGroup": false,
+          "lexicalTopType": "phone",
+          "lexicalScore": 0.2,
+          "combinedScore": 0.45599999999999996
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "textarea",
+          "idAttr": "question_14523594008",
+          "ariaLabel": "Additional Information"
+        },
+        "fieldId": "field-22",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 8,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.27444444444444444,
+          "combinedScore": 0.27444444444444444
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "gender",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-23",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 15,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.21125000000000002,
+          "combinedScore": 0.21125000000000002
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "hispanic_ethnicity",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-24",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 15,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.21125000000000002,
+          "combinedScore": 0.21125000000000002
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "veteran_status",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-25",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 15,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.21125000000000002,
+          "combinedScore": 0.21125000000000002
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "disability_status",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-26",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 15,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.21125000000000002,
+          "combinedScore": 0.21125000000000002
+        }
+      }
+    ],
+    "unresolvedSample": [
+      {
+        "fieldName": "Job Title",
+        "status": "unresolved",
+        "confidence": 0.3254,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Country",
+        "status": "ambiguous",
+        "confidence": 0.6192,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      }
+    ],
+    "lowConfidenceResolved": []
+  },
+  {
+    "target": {
+      "name": "Figma",
+      "url": "https://job-boards.greenhouse.io/figma/jobs/5426468004?gh_jid=5426468004"
+    },
+    "metrics": {
+      "totalDiscovered": 20,
+      "resolved": 10,
+      "ambiguous": 1,
+      "unresolved": 9,
+      "layer2Resolved": 0
+    },
+    "results": [
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "first_name",
+          "ariaLabel": "First Name",
+          "autocomplete": "given-name"
+        },
+        "fieldId": "field-1",
+        "fieldName": "First Name",
+        "controlKind": "textual",
+        "fieldType": "first_name",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "First Name*",
+            "matchedType": "first_name",
+            "weight": 1.2
+          },
+          {
+            "signal": "label_for",
+            "rawValue": "First Name*",
+            "matchedType": "full_name",
+            "weight": 0.5
+          },
+          {
+            "signal": "autocomplete",
+            "rawValue": "given-name",
+            "matchedType": "first_name",
+            "weight": 0.85
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "First Name",
+            "matchedType": "first_name",
+            "weight": 0.96
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "First Name",
+            "matchedType": "full_name",
+            "weight": 0.4
+          },
+          {
+            "signal": "id",
+            "rawValue": "first_name",
+            "matchedType": "first_name",
+            "weight": 0.78
+          },
+          {
+            "signal": "id",
+            "rawValue": "first_name",
+            "matchedType": "full_name",
+            "weight": 0.325
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "last_name",
+          "ariaLabel": "Last Name",
+          "autocomplete": "family-name"
+        },
+        "fieldId": "field-2",
+        "fieldName": "Last Name",
+        "controlKind": "textual",
+        "fieldType": "last_name",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Last Name*",
+            "matchedType": "last_name",
+            "weight": 1.2
+          },
+          {
+            "signal": "label_for",
+            "rawValue": "Last Name*",
+            "matchedType": "full_name",
+            "weight": 0.5
+          },
+          {
+            "signal": "autocomplete",
+            "rawValue": "family-name",
+            "matchedType": "last_name",
+            "weight": 0.85
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "Last Name",
+            "matchedType": "last_name",
+            "weight": 0.96
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "Last Name",
+            "matchedType": "full_name",
+            "weight": 0.4
+          },
+          {
+            "signal": "id",
+            "rawValue": "last_name",
+            "matchedType": "last_name",
+            "weight": 0.78
+          },
+          {
+            "signal": "id",
+            "rawValue": "last_name",
+            "matchedType": "full_name",
+            "weight": 0.325
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "email",
+          "ariaLabel": "Email",
+          "autocomplete": "email"
+        },
+        "fieldId": "field-3",
+        "fieldName": "Email",
+        "controlKind": "textual",
+        "fieldType": "email",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Email*",
+            "matchedType": "email",
+            "weight": 1.2
+          },
+          {
+            "signal": "autocomplete",
+            "rawValue": "email",
+            "matchedType": "email",
+            "weight": 0.85
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "Email",
+            "matchedType": "email",
+            "weight": 0.96
+          },
+          {
+            "signal": "id",
+            "rawValue": "email",
+            "matchedType": "email",
+            "weight": 0.78
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "country",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-4",
+        "fieldName": "Country",
+        "controlKind": "textual",
+        "fieldType": "country",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Country*",
+            "matchedType": "country",
+            "weight": 1.2
+          },
+          {
+            "signal": "aria_labelledby",
+            "rawValue": "Country*",
+            "matchedType": "country",
+            "weight": 1.08
+          },
+          {
+            "signal": "id",
+            "rawValue": "country",
+            "matchedType": "country",
+            "weight": 0.78
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "tel",
+          "idAttr": "phone",
+          "ariaLabel": "Phone",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-7",
+        "fieldName": "Phone",
+        "controlKind": "textual",
+        "fieldType": "phone",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Phone*",
+            "matchedType": "phone",
+            "weight": 1.2
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "Phone",
+            "matchedType": "phone",
+            "weight": 0.96
+          },
+          {
+            "signal": "id",
+            "rawValue": "phone",
+            "matchedType": "phone",
+            "weight": 0.78
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "candidate-location",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-8",
+        "fieldName": "City",
+        "controlKind": "textual",
+        "fieldType": "city",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Location (City)*",
+            "matchedType": "city",
+            "weight": 1.3
+          },
+          {
+            "signal": "aria_labelledby",
+            "rawValue": "Location (City)*",
+            "matchedType": "city",
+            "weight": 1.1700000000000002
+          },
+          {
+            "signal": "id",
+            "rawValue": "candidate-location",
+            "matchedType": "city",
+            "weight": 0.6825000000000001
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "file",
+          "idAttr": "resume"
+        },
+        "fieldId": "field-10",
+        "fieldName": "Resume",
+        "controlKind": "file",
+        "fieldType": "resume",
+        "confidence": 0.9,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "id",
+            "rawValue": "resume",
+            "matchedType": "resume",
+            "weight": 0.8125
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "question_12497118004",
+          "ariaLabel": "LinkedIn Profile"
+        },
+        "fieldId": "field-11",
+        "fieldName": "LinkedIn",
+        "controlKind": "textual",
+        "fieldType": "linkedin",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "LinkedIn Profile",
+            "matchedType": "linkedin",
+            "weight": 1.3
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "LinkedIn Profile",
+            "matchedType": "linkedin",
+            "weight": 1.04
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "question_12497119004",
+          "ariaLabel": "Other Website"
+        },
+        "fieldId": "field-12",
+        "fieldName": "Website",
+        "controlKind": "textual",
+        "fieldType": "website",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Other Website",
+            "matchedType": "website",
+            "weight": 1
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "Other Website",
+            "matchedType": "website",
+            "weight": 0.8
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "textarea",
+          "idAttr": "question_12497120004",
+          "ariaLabel": "Why do you want to join Figma?"
+        },
+        "fieldId": "field-13",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 8,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.27444444444444444,
+          "combinedScore": 0.27444444444444444
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "question_12497121004",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-14",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 13,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.22285714285714286,
+          "combinedScore": 0.22285714285714286
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "textarea",
+          "idAttr": "question_12497122004",
+          "ariaLabel": "Additional Information"
+        },
+        "fieldId": "field-15",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 8,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.27444444444444444,
+          "combinedScore": 0.27444444444444444
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "question_12497123004",
+          "ariaLabel": "From where do you intend to work? "
+        },
+        "fieldId": "field-16",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 8,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.27444444444444444,
+          "combinedScore": 0.27444444444444444
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "idAttr": "question_12497124004",
+          "ariaLabel": "Preferred First Name"
+        },
+        "fieldId": "field-17",
+        "fieldName": "First Name",
+        "controlKind": "textual",
+        "fieldType": "first_name",
+        "confidence": 1,
+        "status": "resolved",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Preferred First Name",
+            "matchedType": "first_name",
+            "weight": 1.25
+          },
+          {
+            "signal": "label_for",
+            "rawValue": "Preferred First Name",
+            "matchedType": "full_name",
+            "weight": 0.5
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "Preferred First Name",
+            "matchedType": "first_name",
+            "weight": 1
+          },
+          {
+            "signal": "aria_label",
+            "rawValue": "Preferred First Name",
+            "matchedType": "full_name",
+            "weight": 0.4
+          }
+        ],
+        "resolutionLayer": "layer1"
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "question_12497125004",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-18",
+        "fieldName": "Country",
+        "controlKind": "textual",
+        "fieldType": "country",
+        "confidence": 0.6192,
+        "status": "ambiguous",
+        "fillable": true,
+        "evidence": [
+          {
+            "signal": "label_for",
+            "rawValue": "Are you authorized to work in the country for which you applied? *",
+            "matchedType": "country",
+            "weight": 0.24
+          },
+          {
+            "signal": "aria_labelledby",
+            "rawValue": "Are you authorized to work in the country for which you applied? *",
+            "matchedType": "country",
+            "weight": 0.216
+          }
+        ],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "Phone",
+          "lcaDistance": 14,
+          "sameGroup": false,
+          "lexicalTopType": "phone",
+          "lexicalScore": 0.2,
+          "combinedScore": 0.45599999999999996
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "question_12497126004",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-20",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "LinkedIn Profile",
+          "lcaDistance": 13,
+          "sameGroup": false,
+          "lexicalTopType": "linkedin",
+          "lexicalScore": 0.22285714285714286,
+          "combinedScore": 0.22285714285714286
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "gender",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-22",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "Location (City)",
+          "lcaDistance": 15,
+          "sameGroup": false,
+          "lexicalTopType": "city",
+          "lexicalScore": 0.21125000000000002,
+          "combinedScore": 0.21125000000000002
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "hispanic_ethnicity",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-23",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "Location (City)",
+          "lcaDistance": 15,
+          "sameGroup": false,
+          "lexicalTopType": "city",
+          "lexicalScore": 0.21125000000000002,
+          "combinedScore": 0.21125000000000002
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "veteran_status",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-24",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "Location (City)",
+          "lcaDistance": 15,
+          "sameGroup": false,
+          "lexicalTopType": "city",
+          "lexicalScore": 0.21125000000000002,
+          "combinedScore": 0.21125000000000002
+        }
+      },
+      {
+        "elementInfo": {
+          "tagName": "input",
+          "inputType": "text",
+          "role": "combobox",
+          "idAttr": "disability_status",
+          "autocomplete": "off"
+        },
+        "fieldId": "field-25",
+        "fieldName": "Unknown",
+        "controlKind": "textual",
+        "fieldType": "unknown",
+        "confidence": 0,
+        "status": "unresolved",
+        "fillable": true,
+        "evidence": [],
+        "resolutionLayer": "layer1",
+        "layer2Match": {
+          "candidateText": "Location (City)",
+          "lcaDistance": 15,
+          "sameGroup": false,
+          "lexicalTopType": "city",
+          "lexicalScore": 0.21125000000000002,
+          "combinedScore": 0.21125000000000002
+        }
+      }
+    ],
+    "unresolvedSample": [
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Country",
+        "status": "ambiguous",
+        "confidence": 0.6192,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      },
+      {
+        "fieldName": "Unknown",
+        "status": "unresolved",
+        "confidence": 0,
+        "resolutionLayer": "layer1"
+      }
+    ],
+    "lowConfidenceResolved": []
+  }
+]

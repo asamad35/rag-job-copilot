@@ -1,4 +1,5 @@
 import { LabelLikeCandidate } from "~src/content/autofill/types"
+import { isElementVisible } from "~src/content/autofill/dom-utils"
 import { normalizeText } from "~src/content/autofill/layer1/vocabulary"
 
 const MIN_TEXT_LENGTH = 2
@@ -54,38 +55,26 @@ const INTERACTIVE_SELECTOR = [
 ].join(",")
 
 const HELPER_TEXT_PATTERNS = [
-  /invalid/i,
-  /error/i,
-  /this field/i,
-  /required field/i,
-  /please enter/i,
-  /must be/i,
-  /cannot be/i
+  /\bthis field\b/i,
+  /\brequired field\b/i,
+  /\binvalid characters?\b/i,
+  /\bis required\b/i,
+  /\bmust be at least\b/i,
+  /\bcannot be empty\b/i
 ]
 
+const HELPER_CLASS_PATTERNS = /error|invalid|helper|hint|warning|feedback/i
+const OPTION_INPUT_TYPES = new Set(["checkbox", "radio"])
+const OPTION_LIKE_ROLES = new Set([
+  "checkbox",
+  "radio",
+  "option",
+  "switch",
+  "menuitemcheckbox",
+  "menuitemradio"
+])
+
 const toCollapsedText = (value: string): string => value.replace(/\s+/g, " ").trim()
-
-const isVisible = (element: HTMLElement): boolean => {
-  if (!element.isConnected) {
-    return false
-  }
-
-  if (element.hidden) {
-    return false
-  }
-
-  if (element.getAttribute("aria-hidden") === "true") {
-    return false
-  }
-
-  const style = window.getComputedStyle(element)
-
-  return (
-    style.display !== "none" &&
-    style.visibility !== "hidden" &&
-    style.visibility !== "collapse"
-  )
-}
 
 const isTechnicalTag = (element: HTMLElement): boolean =>
   TECHNICAL_TAGS.has(element.tagName.toLowerCase())
@@ -93,8 +82,8 @@ const isTechnicalTag = (element: HTMLElement): boolean =>
 const isInteractiveElement = (element: HTMLElement): boolean =>
   element.matches(INTERACTIVE_SELECTOR)
 
-const hasInteractiveDescendants = (element: HTMLElement): boolean =>
-  element.querySelector(INTERACTIVE_SELECTOR) !== null
+const hasInteractiveAncestor = (element: HTMLElement): boolean =>
+  element.parentElement?.closest(INTERACTIVE_SELECTOR) !== null
 
 const hasInteractiveControlLabelAncestor = (element: HTMLElement): boolean => {
   const wrappingLabel = element.closest("label")
@@ -106,42 +95,78 @@ const hasInteractiveControlLabelAncestor = (element: HTMLElement): boolean => {
   return wrappingLabel.querySelector("input, textarea, select, button") !== null
 }
 
-const isLikelyHelperText = (normalizedText: string): boolean => {
+const hasOptionControlLabelForAncestor = (element: HTMLElement): boolean => {
+  const wrappingLabel = element.closest("label")
+
+  if (!(wrappingLabel instanceof HTMLLabelElement)) {
+    return false
+  }
+
+  const targetId = wrappingLabel.htmlFor.trim()
+
+  if (!targetId) {
+    return false
+  }
+
+  const targetElement = wrappingLabel.ownerDocument.getElementById(targetId)
+
+  if (!targetElement) {
+    return false
+  }
+
+  if (targetElement instanceof HTMLInputElement) {
+    return OPTION_INPUT_TYPES.has(targetElement.type.toLowerCase())
+  }
+
+  const role = targetElement.getAttribute("role")?.toLowerCase()
+
+  return role ? OPTION_LIKE_ROLES.has(role) : false
+}
+
+const hasHelperClassOrId = (element: HTMLElement): boolean => {
+  const classValue =
+    typeof element.className === "string" ? element.className : ""
+  const idValue = element.id ?? ""
+  const dataErrorValue = element.getAttribute("data-error-for") ?? ""
+  const dataQaValue = element.getAttribute("data-qa") ?? ""
+  const merged = `${classValue} ${idValue} ${dataErrorValue} ${dataQaValue}`
+
+  return HELPER_CLASS_PATTERNS.test(merged)
+}
+
+const isLikelyHelperText = (
+  normalizedText: string,
+  element: HTMLElement
+): boolean => {
   if (!normalizedText) {
+    return true
+  }
+
+  if (hasHelperClassOrId(element)) {
     return true
   }
 
   return HELPER_TEXT_PATTERNS.some((pattern) => pattern.test(normalizedText))
 }
 
-const getElementSiblingIndex = (element: HTMLElement): number => {
-  let index = 1
-  let current = element.previousElementSibling
+const hasSeenTextForElement = (
+  seenByElement: WeakMap<HTMLElement, Set<string>>,
+  element: HTMLElement,
+  normalizedText: string
+): boolean => {
+  const seenTexts = seenByElement.get(element)
 
-  while (current) {
-    if (current.tagName === element.tagName) {
-      index += 1
-    }
-    current = current.previousElementSibling
+  if (seenTexts?.has(normalizedText)) {
+    return true
   }
 
-  return index
-}
-
-const buildElementFingerprint = (element: HTMLElement): string => {
-  const parts: string[] = []
-  let current: HTMLElement | null = element
-  let depth = 0
-
-  while (current && depth < 4) {
-    const tag = current.tagName.toLowerCase()
-    const index = getElementSiblingIndex(current)
-    parts.push(`${tag}:${index}`)
-    current = current.parentElement
-    depth += 1
+  if (!seenTexts) {
+    seenByElement.set(element, new Set([normalizedText]))
+    return false
   }
 
-  return parts.join("/")
+  seenTexts.add(normalizedText)
+  return false
 }
 
 const toMeaningfulAncestor = (textNode: Text): HTMLElement | null => {
@@ -164,7 +189,7 @@ const toMeaningfulAncestor = (textNode: Text): HTMLElement | null => {
 }
 
 const isCandidateElementValid = (element: HTMLElement): boolean => {
-  if (!isVisible(element)) {
+  if (!isElementVisible(element)) {
     return false
   }
 
@@ -176,11 +201,15 @@ const isCandidateElementValid = (element: HTMLElement): boolean => {
     return false
   }
 
-  if (hasInteractiveDescendants(element)) {
+  if (hasInteractiveAncestor(element)) {
     return false
   }
 
   if (hasInteractiveControlLabelAncestor(element)) {
+    return false
+  }
+
+  if (hasOptionControlLabelForAncestor(element)) {
     return false
   }
 
@@ -196,7 +225,7 @@ export const collectLabelLikeCandidates = (
   const root = getWalkerRoot(documentRoot)
   const walker = documentRoot.createTreeWalker(root, NodeFilter.SHOW_TEXT)
   const candidates: LabelLikeCandidate[] = []
-  const seen = new Set<string>()
+  const seenByElement = new WeakMap<HTMLElement, Set<string>>()
 
   let currentNode = walker.nextNode()
 
@@ -219,11 +248,6 @@ export const collectLabelLikeCandidates = (
       continue
     }
 
-    if (isLikelyHelperText(normalizedText)) {
-      currentNode = walker.nextNode()
-      continue
-    }
-
     const candidateElement = toMeaningfulAncestor(textNode)
 
     if (!candidateElement || !isCandidateElementValid(candidateElement)) {
@@ -231,14 +255,16 @@ export const collectLabelLikeCandidates = (
       continue
     }
 
-    const dedupeKey = `${normalizedText}|${buildElementFingerprint(candidateElement)}`
-
-    if (seen.has(dedupeKey)) {
+    if (isLikelyHelperText(normalizedText, candidateElement)) {
       currentNode = walker.nextNode()
       continue
     }
 
-    seen.add(dedupeKey)
+    // De-duplicate only within the exact same container element.
+    if (hasSeenTextForElement(seenByElement, candidateElement, normalizedText)) {
+      currentNode = walker.nextNode()
+      continue
+    }
     candidates.push({
       textNode,
       element: candidateElement,

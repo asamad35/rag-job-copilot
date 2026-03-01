@@ -72,6 +72,8 @@ export const appearsBeforeInDom = (left: Element, right: Element): boolean => {
 }
 
 export const getAncestorElements = (element: HTMLElement): HTMLElement[] => {
+  // Include the element itself first so callers can consider "self as group"
+  // before progressively broader ancestors.
   const ancestors: HTMLElement[] = []
   let current: HTMLElement | null = element
 

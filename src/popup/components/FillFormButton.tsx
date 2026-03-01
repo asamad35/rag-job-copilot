@@ -16,6 +16,14 @@ interface ActiveTabContext {
   url: string
 }
 
+interface TabFrameContext {
+  frameId: number
+  parentFrameId: number
+  url: string
+}
+
+const GOOGLE_FORMS_SECOND_PASS_DELAY_MS = 1200
+
 const getActiveTabContext = async (): Promise<ActiveTabContext> => {
   const tabs = await new Promise<chrome.tabs.Tab[]>((resolve, reject) => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabList) => {
@@ -60,34 +68,107 @@ const isUnsupportedTabUrl = (url: string): string | null => {
   return null
 }
 
-const requestFillForm = async (tabId: number): Promise<FillFormResponse> => {
-  const response = await new Promise<FillFormResponse | undefined>((resolve) => {
-    chrome.tabs.sendMessage(
-        tabId,
-        {
-          type: FILL_FORM_MESSAGE_TYPE,
-          debug: true
-        },
-        (result: FillFormResponse | undefined) => {
-          if (chrome.runtime.lastError) {
-            const runtimeErrorMessage = chrome.runtime.lastError.message
-            const noReceiver =
-              runtimeErrorMessage?.includes("Receiving end does not exist") === true
+const delay = (durationMs: number): Promise<void> =>
+  new Promise((resolve) => {
+    window.setTimeout(resolve, durationMs)
+  })
 
-            resolve({
-              ok: false,
-              error: noReceiver
-                ? "Content script not available in this tab yet. Reload this webpage and click Fill Form again."
-                : runtimeErrorMessage ?? "Unable to send autofill message to tab."
-            })
+const isGoogleFormsUrl = (url: string): boolean => {
+  try {
+    const parsed = new URL(url)
+    return /(^|\.)docs\.google\.com$/i.test(parsed.hostname) &&
+      /\/forms\//i.test(parsed.pathname)
+  } catch {
+    return false
+  }
+}
+
+const getTabFrames = async (tabId: number): Promise<TabFrameContext[]> => {
+  if (!chrome.webNavigation?.getAllFrames) {
+    return []
+  }
+
+  try {
+    const frames = await new Promise<chrome.webNavigation.GetAllFrameResultDetails[]>(
+      (resolve, reject) => {
+        chrome.webNavigation.getAllFrames({ tabId }, (result) => {
+          if (chrome.runtime.lastError) {
+            reject(new Error(chrome.runtime.lastError.message))
             return
           }
 
-          resolve(result)
-        }
-      )
+          resolve(result ?? [])
+        })
+      }
+    )
+
+    return frames
+      .filter((frame): frame is Required<typeof frame> => {
+        return (
+          typeof frame.frameId === "number" &&
+          typeof frame.parentFrameId === "number" &&
+          typeof frame.url === "string"
+        )
+      })
+      .map((frame) => ({
+        frameId: frame.frameId,
+        parentFrameId: frame.parentFrameId,
+        url: frame.url
+      }))
+  } catch {
+    return []
+  }
+}
+
+const getFramePriority = (frame: TabFrameContext): number => {
+  const url = frame.url.toLowerCase()
+  let priority = frame.parentFrameId >= 0 ? 5 : 0
+
+  const knownJobIframeHosts = [
+    "mynexthire.com",
+    "ashbyhq.com",
+    "greenhouse.io",
+    "boards.greenhouse.io",
+    "job-boards.greenhouse.io",
+    "lever.co"
+  ]
+
+  if (knownJobIframeHosts.some((host) => url.includes(host))) {
+    priority += 10
+  }
+
+  return priority
+}
+
+const sendFillMessageToFrame = async (
+  tabId: number,
+  frameId?: number
+): Promise<FillFormResponse> => {
+  const response = await new Promise<FillFormResponse | undefined>((resolve) => {
+    const message = {
+      type: FILL_FORM_MESSAGE_TYPE,
+      debug: true
     }
-  )
+
+    const callback = (result: FillFormResponse | undefined) => {
+      if (chrome.runtime.lastError) {
+        resolve({
+          ok: false,
+          error: chrome.runtime.lastError.message ?? "Unable to send message."
+        })
+        return
+      }
+
+      resolve(result)
+    }
+
+    if (typeof frameId === "number") {
+      chrome.tabs.sendMessage(tabId, message, { frameId }, callback)
+      return
+    }
+
+    chrome.tabs.sendMessage(tabId, message, callback)
+  })
 
   if (!response) {
     return {
@@ -97,6 +178,111 @@ const requestFillForm = async (tabId: number): Promise<FillFormResponse> => {
   }
 
   return response
+}
+
+const getSnapshotScore = (summary: Layer1RunSnapshot): number =>
+  summary.filled * 10000 + summary.resolved * 100 + summary.totalDiscovered
+
+interface FillRoundResult {
+  successfulResponses: FillFormResponse[]
+  errors: string[]
+}
+
+const runFillRound = async (tabId: number): Promise<FillRoundResult> => {
+  const frames = await getTabFrames(tabId)
+  const prioritizedFrames = [...frames].sort(
+    (left, right) => getFramePriority(right) - getFramePriority(left)
+  )
+
+  const attemptedFrameIds = new Set<number>()
+  const successfulResponses: FillFormResponse[] = []
+  const errors: string[] = []
+
+  for (const frame of prioritizedFrames) {
+    attemptedFrameIds.add(frame.frameId)
+    const response = await sendFillMessageToFrame(tabId, frame.frameId)
+
+    if (!response.ok) {
+      if (response.error) {
+        errors.push(response.error)
+      }
+      continue
+    }
+
+    successfulResponses.push(response)
+  }
+
+  if (!attemptedFrameIds.has(0)) {
+    const topFrameResponse = await sendFillMessageToFrame(tabId, 0)
+    if (topFrameResponse.ok) {
+      successfulResponses.push(topFrameResponse)
+    } else if (topFrameResponse.error) {
+      errors.push(topFrameResponse.error)
+    }
+  }
+
+  return {
+    successfulResponses,
+    errors
+  }
+}
+
+const pickBestResponse = (
+  responses: FillFormResponse[]
+): FillFormResponse | null => {
+  if (responses.length === 0) {
+    return null
+  }
+
+  return responses.reduce((best, candidate) => {
+    const bestScore = best.summary ? getSnapshotScore(best.summary) : 0
+    const candidateScore = candidate.summary
+      ? getSnapshotScore(candidate.summary)
+      : 0
+
+    return candidateScore > bestScore ? candidate : best
+  })
+}
+
+const requestFillForm = async (
+  tabId: number,
+  tabUrl: string
+): Promise<FillFormResponse> => {
+  const firstRound = await runFillRound(tabId)
+  const successfulResponses = [...firstRound.successfulResponses]
+  const errors = [...firstRound.errors]
+
+  if (isGoogleFormsUrl(tabUrl)) {
+    await delay(GOOGLE_FORMS_SECOND_PASS_DELAY_MS)
+    const secondRound = await runFillRound(tabId)
+    successfulResponses.push(...secondRound.successfulResponses)
+    errors.push(...secondRound.errors)
+  }
+
+  if (successfulResponses.length > 0) {
+    const bestResponse = pickBestResponse(successfulResponses)
+
+    if (bestResponse) {
+      return bestResponse
+    }
+  }
+
+  const noReceiverError = errors.find((error) =>
+    error.includes("Receiving end does not exist")
+  )
+
+  if (noReceiverError) {
+    return {
+      ok: false,
+      error:
+        "Content script not available in this page/frame yet. Reload the page and click Fill Form again."
+    }
+  }
+
+  return {
+    ok: false,
+    error: errors[0] ?? "Unable to send autofill message to this tab."
+  }
 }
 
 interface NamedField {
@@ -208,7 +394,7 @@ export const FillFormButton = () => {
         return
       }
 
-      const response = await requestFillForm(activeTab.id)
+      const response = await requestFillForm(activeTab.id, activeTab.url)
 
       if (!response.ok) {
         setStatusMessage(response.error ?? "Autofill failed due to unknown error.")
@@ -218,8 +404,8 @@ export const FillFormButton = () => {
       setSummary(response.summary ?? null)
       const resolvedCount = response.summary?.resolved ?? 0
       const filledCount = response.summary?.filled ?? 0
-      setStatusMessage(`Layer 1 complete: ${filledCount} filled, ${resolvedCount} resolved.`)
-      console.info("Layer 1 autofill summary:", response.summary)
+      setStatusMessage(`Autofill complete: ${filledCount} filled, ${resolvedCount} resolved.`)
+      console.info("Autofill summary:", response.summary)
     } catch (error) {
       const message = error instanceof Error ? error.message : "Autofill request failed."
       setStatusMessage(message)
