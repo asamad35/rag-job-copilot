@@ -31,6 +31,16 @@ export enum FieldType {
   GitHub = "github",
   LeetCode = "leetcode",
   Website = "website",
+  WorkAuthorization = "work_authorization",
+  ReferralSource = "referral_source",
+  Relocation = "relocation",
+  Pronouns = "pronouns",
+  CoverLetter = "cover_letter",
+  PreferredName = "preferred_name",
+  EeoGender = "eeo_gender",
+  EeoRace = "eeo_race",
+  EeoVeteran = "eeo_veteran",
+  EeoDisability = "eeo_disability",
   Unknown = "unknown"
 }
 
@@ -197,6 +207,16 @@ export const FIELD_TYPES: readonly FieldType[] = [
   FieldType.GitHub,
   FieldType.LeetCode,
   FieldType.Website,
+  FieldType.WorkAuthorization,
+  FieldType.ReferralSource,
+  FieldType.Relocation,
+  FieldType.Pronouns,
+  FieldType.CoverLetter,
+  FieldType.PreferredName,
+  FieldType.EeoGender,
+  FieldType.EeoRace,
+  FieldType.EeoVeteran,
+  FieldType.EeoDisability,
   FieldType.Unknown
 ]
 

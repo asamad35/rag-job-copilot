@@ -17,6 +17,22 @@ import {
   getTopTwoScoredTypes
 } from "~src/content/autofill/scoring-utils"
 
+const EEO_ID_PATTERNS: Array<{ pattern: RegExp; fieldType: FieldType }> = [
+  { pattern: /eeoc[_-]?gender/i, fieldType: FieldType.EeoGender },
+  { pattern: /eeo[_-]gender/i, fieldType: FieldType.EeoGender },
+  { pattern: /compliance[_-]section[_-]gender/i, fieldType: FieldType.EeoGender },
+  { pattern: /(?:^|[_-])hispanic[_-]ethnicity(?:[_-]|$)/i, fieldType: FieldType.EeoRace },
+  { pattern: /(?:^|[_-])race(?:[_-]|$)/i, fieldType: FieldType.EeoRace },
+  { pattern: /eeoc[_-]?race/i, fieldType: FieldType.EeoRace },
+  { pattern: /compliance[_-]section[_-]race/i, fieldType: FieldType.EeoRace },
+  { pattern: /(?:^|[_-])veteran[_-]status(?:[_-]|$)/i, fieldType: FieldType.EeoVeteran },
+  { pattern: /eeoc[_-]?veteran/i, fieldType: FieldType.EeoVeteran },
+  { pattern: /compliance[_-]section[_-]veteran/i, fieldType: FieldType.EeoVeteran },
+  { pattern: /(?:^|[_-])disability[_-]status(?:[_-]|$)/i, fieldType: FieldType.EeoDisability },
+  { pattern: /eeoc[_-]?disability/i, fieldType: FieldType.EeoDisability },
+  { pattern: /compliance[_-]section[_-]disability/i, fieldType: FieldType.EeoDisability }
+]
+
 const ACCEPT_THRESHOLD = 0.9
 const REVIEW_THRESHOLD = 0.5
 const MARGIN_DIVISOR = 0.35
@@ -275,6 +291,30 @@ export const scoreLayer1Signals = (
 
   const { topType, topScore, secondScore } = getTopTwoScoredTypes(typeScores)
 
+  // --- EEO ID pattern override ---
+  const idValues = signals[SignalType.Id] ?? []
+  for (const idValue of idValues) {
+    for (const eeoPattern of EEO_ID_PATTERNS) {
+      if (eeoPattern.pattern.test(idValue)) {
+        return {
+          fieldType: eeoPattern.fieldType,
+          confidence: 0.95,
+          status: LayerStatus.Resolved,
+          evidence: [
+            ...evidence,
+            {
+              signal: SignalType.Id,
+              rawValue: idValue,
+              matchedType: eeoPattern.fieldType,
+              weight: 1
+            }
+          ],
+          typeScores
+        }
+      }
+    }
+  }
+
   const conflictPenalty = hasStrongConflict(evidence) ? CONFLICT_PENALTY : 0
   const genericPenalty = hasGenericOnlySignals(signals)
     ? GENERIC_TEXT_PENALTY
@@ -311,6 +351,22 @@ export const scoreLayer1Signals = (
     hasStrongCountrySignal(signals)
   ) {
     adjustedTopScore = Math.max(adjustedTopScore, 0.95)
+  }
+
+  // --- Single-signal unambiguous match boost ---
+  // When exactly one signal source maps to exactly one field type
+  // and there is no second-place competitor, the low confidence is artificial.
+  if (
+    adjustedTopScore > 0 &&
+    adjustedTopScore < ACCEPT_THRESHOLD &&
+    secondScore === 0 &&
+    evidence.length > 0
+  ) {
+    const distinctSignalSources = new Set(evidence.map((e) => e.signal))
+    const distinctMatchedTypes = new Set(evidence.map((e) => e.matchedType))
+    if (distinctSignalSources.size <= 2 && distinctMatchedTypes.size === 1) {
+      adjustedTopScore = Math.max(adjustedTopScore, 0.92)
+    }
   }
 
   const absScore = clamp(adjustedTopScore, 0, 1)

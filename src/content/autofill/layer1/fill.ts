@@ -790,6 +790,134 @@ const isInternationalPhoneCountrySelectorButton = (
   element instanceof HTMLButtonElement &&
   element.classList.contains("react-international-phone-country-selector-button")
 
+const COUNTRY_CODE_OPTION_PATTERN = /^\+\d{1,4}$/
+
+const isLikelyCountryCodeSelect = (select: HTMLSelectElement): boolean => {
+  const options = Array.from(select.options)
+  if (options.length < 3) {
+    return false
+  }
+
+  let countryCodeCount = 0
+  for (const option of options) {
+    const value = option.value.trim()
+    const text = (option.textContent ?? "").trim()
+
+    if (
+      COUNTRY_CODE_OPTION_PATTERN.test(value) ||
+      COUNTRY_CODE_OPTION_PATTERN.test(text) ||
+      /^\+\d{1,4}\s/.test(text)
+    ) {
+      countryCodeCount += 1
+    }
+
+    if (countryCodeCount >= 3) {
+      return true
+    }
+  }
+
+  return false
+}
+
+const findNearbyCountryCodeSelect = (
+  phoneInput: HTMLInputElement
+): HTMLSelectElement | null => {
+  const wrapper =
+    phoneInput.closest(
+      ".field, .form-group, .form-field, [class*='phone'], [class*='tel'], [class*='input-group']"
+    ) ??
+    phoneInput.parentElement?.parentElement ??
+    phoneInput.parentElement
+
+  if (!wrapper) {
+    return null
+  }
+
+  const selects = Array.from(wrapper.querySelectorAll("select")).filter(
+    (el): el is HTMLSelectElement => el instanceof HTMLSelectElement
+  )
+
+  return selects.find(isLikelyCountryCodeSelect) ?? null
+}
+
+const stripCountryCodePrefix = (
+  fullPhone: string,
+  countryCode: string
+): string => {
+  const normalizedCode = countryCode.replace(/[^+\d]/g, "")
+  const normalizedPhone = fullPhone.replace(/[^+\d]/g, "")
+
+  if (normalizedPhone.startsWith(normalizedCode)) {
+    return normalizedPhone.slice(normalizedCode.length)
+  }
+
+  // If the phone doesn't start with +, it might already be a local number
+  if (!normalizedPhone.startsWith("+")) {
+    return normalizedPhone
+  }
+
+  return normalizedPhone
+}
+
+const getSelectedCountryCode = (select: HTMLSelectElement): string => {
+  const selected = select.options[select.selectedIndex]
+  if (!selected) {
+    return ""
+  }
+
+  const value = selected.value.trim()
+  if (COUNTRY_CODE_OPTION_PATTERN.test(value)) {
+    return value
+  }
+
+  const text = (selected.textContent ?? "").trim()
+  const codeMatch = text.match(/^(\+\d{1,4})/)
+  return codeMatch ? codeMatch[1] : ""
+}
+
+const applyCountryCodeToSelect = (
+  select: HTMLSelectElement,
+  fullPhone: string
+): string | null => {
+  const normalizedPhone = fullPhone.replace(/[^+\d]/g, "")
+  if (!normalizedPhone.startsWith("+")) {
+    return null
+  }
+
+  // Try longest matching country code first (e.g. +91 before +9)
+  let bestMatch = ""
+  let bestOption: HTMLOptionElement | null = null
+
+  for (const option of Array.from(select.options)) {
+    const value = option.value.trim()
+    const text = (option.textContent ?? "").trim()
+    const codeMatch = text.match(/^(\+\d{1,4})/)
+    const candidateCode =
+      COUNTRY_CODE_OPTION_PATTERN.test(value)
+        ? value
+        : codeMatch
+          ? codeMatch[1]
+          : ""
+
+    if (
+      candidateCode &&
+      normalizedPhone.startsWith(candidateCode) &&
+      candidateCode.length > bestMatch.length
+    ) {
+      bestMatch = candidateCode
+      bestOption = option
+    }
+  }
+
+  if (bestOption && bestMatch) {
+    setNativeValue(select, bestOption.value)
+    dispatchFieldEvents(select)
+    return bestMatch
+  }
+
+  return null
+}
+
 const delay = (durationMs: number): Promise<void> =>
   new Promise((resolve) => {
     window.setTimeout(resolve, durationMs)
@@ -2165,6 +2293,28 @@ const fillFieldValue = async (
       fieldType: result.fieldType,
       filled: false,
       reason: "No compatible string profile value."
+    }
+  }
+
+  // --- Split phone: country code select + number input ---
+  if (
+    result.fieldType === FieldType.Phone &&
+    element instanceof HTMLInputElement &&
+    element.type.toLowerCase() !== "file"
+  ) {
+    const nearbyCodeSelect = findNearbyCountryCodeSelect(element)
+    if (nearbyCodeSelect) {
+      const appliedCode = applyCountryCodeToSelect(nearbyCodeSelect, stringValue)
+      if (appliedCode) {
+        const localNumber = stripCountryCodePrefix(stringValue, appliedCode)
+        setNativeValue(element, localNumber)
+        dispatchFieldEvents(element)
+        return {
+          fieldId: result.fieldId,
+          fieldType: result.fieldType,
+          filled: true
+        }
+      }
     }
   }
 

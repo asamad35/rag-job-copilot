@@ -1,279 +1,195 @@
 {
   "aggregate": {
-    "runLabel": "mopid-final-report-latest",
-    "targetFile": "/Users/caw-d/Desktop/rag-job-copilot/scripts/live-target-mopid.json",
-    "attemptedTargets": 1,
-    "successfulTargets": 1,
-    "failedTargets": 0,
+    "runLabel": "new-portals-iter1",
+    "targetFile": "/Users/caw-d/Desktop/rag-job-copilot/scripts/live-targets-new-portals.json",
+    "attemptedTargets": 10,
+    "successfulTargets": 3,
+    "failedTargets": 7,
     "totals": {
-      "discovered": 16,
-      "resolved": 13,
+      "discovered": 4,
+      "resolved": 2,
       "ambiguous": 0,
-      "unresolved": 3,
+      "unresolved": 2,
       "layer2Resolved": 0
     },
-    "globalResolvedRate": 0.8125
+    "globalResolvedRate": 0.5
   },
   "reports": [
     {
       "target": {
-        "name": "Mopid Job Apply",
-        "url": "https://start.mopid.me/jobapply/?jobId=542-d4074&source=job-board&igbTracker=882343874"
+        "name": "Jobvite - Anthology",
+        "url": "https://jobs.jobvite.com/anthology/job/oZ2wzfwQ/apply"
       },
       "ok": true,
       "metrics": {
-        "totalDiscovered": 16,
-        "resolved": 13,
+        "totalDiscovered": 1,
+        "resolved": 1,
         "ambiguous": 0,
-        "unresolved": 3,
+        "unresolved": 0,
         "layer2Resolved": 0,
-        "resolvedRate": 0.8125
+        "resolvedRate": 1
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [],
+      "resolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "city",
+          "fieldName": "City",
+          "status": "resolved",
+          "confidence": 0.9314,
+          "resolutionLayer": "layer1",
+          "controlKind": "choice",
+          "elementInfo": {
+            "tagName": "select",
+            "idAttr": "jv-country-select"
+          }
+        }
+      ]
+    },
+    {
+      "target": {
+        "name": "SmartRecruiters - SmartRecruiters Careers",
+        "url": "https://www.smartrecruiterscareers.com/job/senior-frontend-software-engineer-design-system-accessibility-in-poland-jid-1926/apply"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 2,
+        "resolved": 1,
+        "ambiguous": 0,
+        "unresolved": 1,
+        "layer2Resolved": 0,
+        "resolvedRate": 0.5
       },
       "lowConfidenceResolved": [],
       "ambiguousOrUnresolved": [
         {
-          "fieldId": "field-10",
+          "fieldId": "field-1",
           "fieldType": "unknown",
           "fieldName": "Unknown",
           "status": "unresolved",
           "confidence": 0,
           "resolutionLayer": "layer1",
-          "controlKind": "choice",
+          "controlKind": "textual",
           "elementInfo": {
             "tagName": "input",
             "inputType": "text",
-            "role": "combobox",
-            "idAttr": "react-select-5-input",
-            "autocomplete": "off"
-          }
-        },
-        {
-          "fieldId": "field-12",
-          "fieldType": "unknown",
-          "fieldName": "Unknown",
-          "status": "unresolved",
-          "confidence": 0,
-          "resolutionLayer": "layer1",
-          "controlKind": "choice",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "text",
-            "role": "combobox",
-            "idAttr": "react-select-6-input",
-            "autocomplete": "off"
-          }
-        },
-        {
-          "fieldId": "field-14",
-          "fieldType": "unknown",
-          "fieldName": "Unknown",
-          "status": "unresolved",
-          "confidence": 0,
-          "resolutionLayer": "layer1",
-          "controlKind": "choice",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "text",
-            "role": "combobox",
-            "idAttr": "react-select-7-input",
+            "nameAttr": "Content.Keyword",
+            "idAttr": "9c95baa1-82bf-4034-9364-ffd582355f5f",
+            "placeholder": "Start your job search here",
             "autocomplete": "off"
           }
         }
       ],
       "resolved": [
         {
-          "fieldId": "field-1",
-          "fieldType": "first_name",
-          "fieldName": "First Name",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "textual",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "text",
-            "nameAttr": "firstName",
-            "placeholder": "First Name",
-            "autocomplete": "off"
-          }
-        },
-        {
           "fieldId": "field-2",
-          "fieldType": "last_name",
-          "fieldName": "Last Name",
+          "fieldType": "job_title",
+          "fieldName": "Job Title",
           "status": "resolved",
-          "confidence": 1,
+          "confidence": 0.944,
           "resolutionLayer": "layer1",
           "controlKind": "textual",
           "elementInfo": {
             "tagName": "input",
             "inputType": "text",
-            "nameAttr": "lastName",
-            "placeholder": "Last Name",
+            "nameAttr": "Content.Keyword",
+            "idAttr": "0d25d0e8-41d1-44d8-9f22-8b5bd95ab7fc",
+            "placeholder": "Search by job title or keyword",
             "autocomplete": "off"
-          }
-        },
-        {
-          "fieldId": "field-3",
-          "fieldType": "phone",
-          "fieldName": "Phone",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "textual",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "tel"
-          }
-        },
-        {
-          "fieldId": "field-4",
-          "fieldType": "phone",
-          "fieldName": "Phone",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "textual",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "tel"
-          }
-        },
-        {
-          "fieldId": "field-5",
-          "fieldType": "email",
-          "fieldName": "Email",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "textual",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "text",
-            "nameAttr": "email",
-            "placeholder": "Email",
-            "autocomplete": "off"
-          }
-        },
-        {
-          "fieldId": "field-6",
-          "fieldType": "total_experience",
-          "fieldName": "Total Experience",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "textual",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "text",
-            "nameAttr": "experience",
-            "placeholder": "Enter just years, eg. 4.2",
-            "autocomplete": "off"
-          }
-        },
-        {
-          "fieldId": "field-8",
-          "fieldType": "resume",
-          "fieldName": "Resume",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "file",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "file"
-          }
-        },
-        {
-          "fieldId": "field-9",
-          "fieldType": "current_ctc",
-          "fieldName": "Current CTC",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "textual",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "text",
-            "placeholder": "Current annual pay (eg. 2000000)",
-            "autocomplete": "off"
-          }
-        },
-        {
-          "fieldId": "field-11",
-          "fieldType": "current_ctc",
-          "fieldName": "Current CTC",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "textual",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "text",
-            "placeholder": "Current annual pay (eg. 2000000)",
-            "autocomplete": "off"
-          }
-        },
-        {
-          "fieldId": "field-13",
-          "fieldType": "expected_ctc",
-          "fieldName": "Expected CTC",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "textual",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "text",
-            "placeholder": "Expected annual pay (eg. 2000000)",
-            "autocomplete": "off"
-          }
-        },
-        {
-          "fieldId": "field-15",
-          "fieldType": "notice_period",
-          "fieldName": "Notice Period",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "textual",
-          "elementInfo": {
-            "tagName": "input",
-            "inputType": "text",
-            "nameAttr": "noticePeriod",
-            "placeholder": "Number of Days",
-            "autocomplete": "off"
-          }
-        },
-        {
-          "fieldId": "field-16",
-          "fieldType": "country",
-          "fieldName": "Country",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "choice",
-          "elementInfo": {
-            "tagName": "button",
-            "role": "combobox",
-            "ariaLabel": "Country selector"
-          }
-        },
-        {
-          "fieldId": "field-18",
-          "fieldType": "country",
-          "fieldName": "Country",
-          "status": "resolved",
-          "confidence": 1,
-          "resolutionLayer": "layer1",
-          "controlKind": "choice",
-          "elementInfo": {
-            "tagName": "button",
-            "role": "combobox",
-            "ariaLabel": "Country selector"
           }
         }
       ]
+    },
+    {
+      "target": {
+        "name": "Lever - Navan",
+        "url": "https://jobs.lever.co/navan/0e8e7cd1-8c36-4be3-b55a-b2d0bce4be9a/apply"
+      },
+      "ok": false,
+      "error": "Form fields were not found on page."
+    },
+    {
+      "target": {
+        "name": "Lever - Anduril",
+        "url": "https://jobs.lever.co/anduril/7b983b1f-2b3d-4e3d-b3f4-a5c0b14c0534/apply"
+      },
+      "ok": false,
+      "error": "Form fields were not found on page."
+    },
+    {
+      "target": {
+        "name": "Greenhouse - Datadog",
+        "url": "https://careers.datadoghq.com/detail/6338858/?gh_jid=6338858"
+      },
+      "ok": false,
+      "error": "Form fields were not found on page."
+    },
+    {
+      "target": {
+        "name": "Greenhouse - Instacart",
+        "url": "https://job-boards.greenhouse.io/instacart/jobs/6483398"
+      },
+      "ok": true,
+      "metrics": {
+        "totalDiscovered": 1,
+        "resolved": 0,
+        "ambiguous": 0,
+        "unresolved": 1,
+        "layer2Resolved": 0,
+        "resolvedRate": 0
+      },
+      "lowConfidenceResolved": [],
+      "ambiguousOrUnresolved": [
+        {
+          "fieldId": "field-1",
+          "fieldType": "unknown",
+          "fieldName": "Unknown",
+          "status": "unresolved",
+          "confidence": 0,
+          "resolutionLayer": "layer1",
+          "controlKind": "textual",
+          "elementInfo": {
+            "tagName": "input",
+            "inputType": "text",
+            "idAttr": "jobs-search-dept",
+            "placeholder": "Search"
+          }
+        }
+      ],
+      "resolved": []
+    },
+    {
+      "target": {
+        "name": "Greenhouse - DoorDash",
+        "url": "https://job-boards.greenhouse.io/doordash/jobs/6510097"
+      },
+      "ok": false,
+      "error": "Form fields were not found on page."
+    },
+    {
+      "target": {
+        "name": "Greenhouse - Coinbase",
+        "url": "https://job-boards.greenhouse.io/coinbase/jobs/6497919"
+      },
+      "ok": false,
+      "error": "Form fields were not found on page."
+    },
+    {
+      "target": {
+        "name": "Ashby - Anyscale",
+        "url": "https://jobs.ashbyhq.com/anyscale/58c0d07d-60ee-4b7b-8810-3f9e28fadf43/application"
+      },
+      "ok": false,
+      "error": "Form fields were not found on page."
+    },
+    {
+      "target": {
+        "name": "Ashby - Deel",
+        "url": "https://jobs.ashbyhq.com/Deel/1e85d7b2-eb33-44de-933a-fee03e263c5f/application"
+      },
+      "ok": false,
+      "error": "Form fields were not found on page."
     }
   ]
 }

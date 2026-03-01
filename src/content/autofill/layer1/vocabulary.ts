@@ -54,8 +54,6 @@ const AUTOCOMPLETE_TYPE_MAP: Record<string, FieldType> = {
 const FIELD_TYPE_TOKENS: Record<FieldType, readonly FieldTypeToken[]> = {
   [FieldType.FirstName]: [
     { token: "first name", score: 1.2 },
-    { token: "preferred first name", score: 1.25 },
-    { token: "preferred name", score: 1.1 },
     "given name",
     "forename",
     "fname"
@@ -149,11 +147,9 @@ const FIELD_TYPE_TOKENS: Record<FieldType, readonly FieldTypeToken[]> = {
     { token: "country name", score: 1.15 }
   ],
   [FieldType.Gender]: [
-    { token: "gender", score: 1.35 },
-    { token: "sex", score: 1.15 },
-    { token: "gender identity", score: 1.3 },
-    { token: "pronouns", score: 1.1 },
-    { token: "male female", score: 1.2 }
+    { token: "male female", score: 1.2 },
+    { token: "gender", score: 1.2 },
+    { token: "sex", score: 1.1 }
   ],
   [FieldType.Company]: [
     { token: "company", score: 0.55 },
@@ -370,6 +366,104 @@ const FIELD_TYPE_TOKENS: Record<FieldType, readonly FieldTypeToken[]> = {
     { token: "portfolio website", score: 1.25 },
     { token: "portfolio", score: 1.25 },
     "personal site"
+  ],
+  [FieldType.WorkAuthorization]: [
+    { token: "work authorization", score: 1.4 },
+    { token: "authorized to work", score: 1.4 },
+    { token: "work authorisation", score: 1.4 },
+    { token: "authorised to work", score: 1.4 },
+    { token: "legally authorized", score: 1.35 },
+    { token: "legally authorised", score: 1.35 },
+    { token: "eligible to work", score: 1.35 },
+    { token: "right to work", score: 1.35 },
+    { token: "work permit", score: 1.3 },
+    { token: "visa sponsorship", score: 1.4 },
+    { token: "require sponsorship", score: 1.35 },
+    { token: "require visa sponsorship", score: 1.45 },
+    { token: "need sponsorship", score: 1.35 },
+    { token: "sponsorship", score: 1.15 },
+    { token: "immigration sponsorship", score: 1.4 },
+    { token: "do you now or in the future require sponsorship", score: 1.5 },
+    { token: "will you now or in the future require sponsorship", score: 1.5 },
+    { token: "employment eligibility", score: 1.3 },
+    { token: "work visa", score: 1.3 },
+    { token: "visa status", score: 1.25 }
+  ],
+  [FieldType.ReferralSource]: [
+    { token: "how did you hear about", score: 1.45 },
+    { token: "how did you hear", score: 1.4 },
+    { token: "how did you learn about", score: 1.4 },
+    { token: "how did you find out about", score: 1.4 },
+    { token: "how did you find this", score: 1.35 },
+    { token: "where did you hear", score: 1.35 },
+    { token: "where did you learn", score: 1.35 },
+    { token: "referral source", score: 1.35 },
+    { token: "source of application", score: 1.3 },
+    { token: "how did you find us", score: 1.3 },
+    { token: "referred by", score: 1.25 },
+    { token: "application source", score: 1.2 },
+    { token: "source", score: 0.35 }
+  ],
+  [FieldType.Relocation]: [
+    { token: "willing to relocate", score: 1.45 },
+    { token: "open to relocating", score: 1.4 },
+    { token: "open to relocation", score: 1.4 },
+    { token: "able to relocate", score: 1.35 },
+    { token: "relocation", score: 1.15 },
+    { token: "relocate", score: 1.1 },
+    { token: "open to working in person", score: 1.3 },
+    { token: "open to working on site", score: 1.3 },
+    { token: "work on site", score: 1.15 },
+    { token: "work in office", score: 1.15 },
+    { token: "comfortable commuting", score: 1.25 },
+    { token: "able to commute", score: 1.2 }
+  ],
+  [FieldType.Pronouns]: [
+    { token: "preferred pronouns", score: 1.45 },
+    { token: "pronouns", score: 1.35 },
+    { token: "your pronouns", score: 1.4 },
+    { token: "personal pronouns", score: 1.4 }
+  ],
+  [FieldType.CoverLetter]: [
+    { token: "cover letter", score: 1.35 },
+    { token: "coverletter", score: 1.3 },
+    { token: "covering letter", score: 1.3 },
+    { token: "letter of motivation", score: 1.25 },
+    { token: "motivation letter", score: 1.25 }
+  ],
+  [FieldType.PreferredName]: [
+    { token: "preferred name", score: 1.3 },
+    { token: "nickname", score: 1.2 },
+    { token: "preferred first name", score: 1.35 },
+    { token: "name you go by", score: 1.3 },
+    { token: "display name", score: 1.15 }
+  ],
+  [FieldType.EeoGender]: [
+    { token: "gender", score: 0.85 },
+    { token: "gender identity", score: 1.4 },
+    { token: "sex", score: 0.9 }
+  ],
+  [FieldType.EeoRace]: [
+    { token: "race", score: 1.3 },
+    { token: "ethnicity", score: 1.3 },
+    { token: "race ethnicity", score: 1.4 },
+    { token: "racial", score: 1.2 },
+    { token: "ethnic background", score: 1.3 },
+    { token: "hispanic", score: 1.2 },
+    { token: "latino", score: 1.1 }
+  ],
+  [FieldType.EeoVeteran]: [
+    { token: "veteran status", score: 1.45 },
+    { token: "veteran", score: 1.3 },
+    { token: "protected veteran", score: 1.4 },
+    { token: "military service", score: 1.3 },
+    { token: "military status", score: 1.3 }
+  ],
+  [FieldType.EeoDisability]: [
+    { token: "disability status", score: 1.45 },
+    { token: "disability", score: 1.3 },
+    { token: "disabled", score: 1.2 },
+    { token: "handicap", score: 1.15 }
   ],
   [FieldType.Unknown]: []
 }

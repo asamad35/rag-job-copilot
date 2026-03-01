@@ -92,6 +92,16 @@
     "github" /* GitHub */,
     "leetcode" /* LeetCode */,
     "website" /* Website */,
+    "work_authorization" /* WorkAuthorization */,
+    "referral_source" /* ReferralSource */,
+    "relocation" /* Relocation */,
+    "pronouns" /* Pronouns */,
+    "cover_letter" /* CoverLetter */,
+    "preferred_name" /* PreferredName */,
+    "eeo_gender" /* EeoGender */,
+    "eeo_race" /* EeoRace */,
+    "eeo_veteran" /* EeoVeteran */,
+    "eeo_disability" /* EeoDisability */,
     "unknown" /* Unknown */
   ];
 
@@ -377,8 +387,6 @@
   var FIELD_TYPE_TOKENS = {
     ["first_name" /* FirstName */]: [
       { token: "first name", score: 1.2 },
-      { token: "preferred first name", score: 1.25 },
-      { token: "preferred name", score: 1.1 },
       "given name",
       "forename",
       "fname"
@@ -472,10 +480,6 @@
       { token: "country name", score: 1.15 }
     ],
     ["gender" /* Gender */]: [
-      { token: "gender", score: 1.35 },
-      { token: "sex", score: 1.15 },
-      { token: "gender identity", score: 1.3 },
-      { token: "pronouns", score: 1.1 },
       { token: "male female", score: 1.2 }
     ],
     ["company" /* Company */]: [
@@ -693,6 +697,104 @@
       { token: "portfolio website", score: 1.25 },
       { token: "portfolio", score: 1.25 },
       "personal site"
+    ],
+    ["work_authorization" /* WorkAuthorization */]: [
+      { token: "work authorization", score: 1.4 },
+      { token: "authorized to work", score: 1.4 },
+      { token: "work authorisation", score: 1.4 },
+      { token: "authorised to work", score: 1.4 },
+      { token: "legally authorized", score: 1.35 },
+      { token: "legally authorised", score: 1.35 },
+      { token: "eligible to work", score: 1.35 },
+      { token: "right to work", score: 1.35 },
+      { token: "work permit", score: 1.3 },
+      { token: "visa sponsorship", score: 1.4 },
+      { token: "require sponsorship", score: 1.35 },
+      { token: "require visa sponsorship", score: 1.45 },
+      { token: "need sponsorship", score: 1.35 },
+      { token: "sponsorship", score: 1.15 },
+      { token: "immigration sponsorship", score: 1.4 },
+      { token: "do you now or in the future require sponsorship", score: 1.5 },
+      { token: "will you now or in the future require sponsorship", score: 1.5 },
+      { token: "employment eligibility", score: 1.3 },
+      { token: "work visa", score: 1.3 },
+      { token: "visa status", score: 1.25 }
+    ],
+    ["referral_source" /* ReferralSource */]: [
+      { token: "how did you hear about", score: 1.45 },
+      { token: "how did you hear", score: 1.4 },
+      { token: "how did you learn about", score: 1.4 },
+      { token: "how did you find out about", score: 1.4 },
+      { token: "how did you find this", score: 1.35 },
+      { token: "where did you hear", score: 1.35 },
+      { token: "where did you learn", score: 1.35 },
+      { token: "referral source", score: 1.35 },
+      { token: "source of application", score: 1.3 },
+      { token: "how did you find us", score: 1.3 },
+      { token: "referred by", score: 1.25 },
+      { token: "application source", score: 1.2 },
+      { token: "source", score: 0.35 }
+    ],
+    ["relocation" /* Relocation */]: [
+      { token: "willing to relocate", score: 1.45 },
+      { token: "open to relocating", score: 1.4 },
+      { token: "open to relocation", score: 1.4 },
+      { token: "able to relocate", score: 1.35 },
+      { token: "relocation", score: 1.15 },
+      { token: "relocate", score: 1.1 },
+      { token: "open to working in person", score: 1.3 },
+      { token: "open to working on site", score: 1.3 },
+      { token: "work on site", score: 1.15 },
+      { token: "work in office", score: 1.15 },
+      { token: "comfortable commuting", score: 1.25 },
+      { token: "able to commute", score: 1.2 }
+    ],
+    ["pronouns" /* Pronouns */]: [
+      { token: "preferred pronouns", score: 1.45 },
+      { token: "pronouns", score: 1.35 },
+      { token: "your pronouns", score: 1.4 },
+      { token: "personal pronouns", score: 1.4 }
+    ],
+    ["cover_letter" /* CoverLetter */]: [
+      { token: "cover letter", score: 1.35 },
+      { token: "coverletter", score: 1.3 },
+      { token: "covering letter", score: 1.3 },
+      { token: "letter of motivation", score: 1.25 },
+      { token: "motivation letter", score: 1.25 }
+    ],
+    ["preferred_name" /* PreferredName */]: [
+      { token: "preferred name", score: 1.3 },
+      { token: "nickname", score: 1.2 },
+      { token: "preferred first name", score: 1.35 },
+      { token: "name you go by", score: 1.3 },
+      { token: "display name", score: 1.15 }
+    ],
+    ["eeo_gender" /* EeoGender */]: [
+      { token: "gender", score: 1.35 },
+      { token: "gender identity", score: 1.4 },
+      { token: "sex", score: 1.15 }
+    ],
+    ["eeo_race" /* EeoRace */]: [
+      { token: "race", score: 1.3 },
+      { token: "ethnicity", score: 1.3 },
+      { token: "race ethnicity", score: 1.4 },
+      { token: "racial", score: 1.2 },
+      { token: "ethnic background", score: 1.3 },
+      { token: "hispanic", score: 1.2 },
+      { token: "latino", score: 1.1 }
+    ],
+    ["eeo_veteran" /* EeoVeteran */]: [
+      { token: "veteran status", score: 1.45 },
+      { token: "veteran", score: 1.3 },
+      { token: "protected veteran", score: 1.4 },
+      { token: "military service", score: 1.3 },
+      { token: "military status", score: 1.3 }
+    ],
+    ["eeo_disability" /* EeoDisability */]: [
+      { token: "disability status", score: 1.45 },
+      { token: "disability", score: 1.3 },
+      { token: "disabled", score: 1.2 },
+      { token: "handicap", score: 1.15 }
     ],
     ["unknown" /* Unknown */]: []
   };
@@ -1241,6 +1343,21 @@
   };
 
   // src/content/autofill/layer1/scoring.ts
+  var EEO_ID_PATTERNS = [
+    { pattern: /(?:^|[_-])gender(?:[_-]|$)/i, fieldType: "eeo_gender" /* EeoGender */ },
+    { pattern: /eeoc[_-]?gender/i, fieldType: "eeo_gender" /* EeoGender */ },
+    { pattern: /compliance[_-]section[_-]gender/i, fieldType: "eeo_gender" /* EeoGender */ },
+    { pattern: /(?:^|[_-])hispanic[_-]ethnicity(?:[_-]|$)/i, fieldType: "eeo_race" /* EeoRace */ },
+    { pattern: /(?:^|[_-])race(?:[_-]|$)/i, fieldType: "eeo_race" /* EeoRace */ },
+    { pattern: /eeoc[_-]?race/i, fieldType: "eeo_race" /* EeoRace */ },
+    { pattern: /compliance[_-]section[_-]race/i, fieldType: "eeo_race" /* EeoRace */ },
+    { pattern: /(?:^|[_-])veteran[_-]status(?:[_-]|$)/i, fieldType: "eeo_veteran" /* EeoVeteran */ },
+    { pattern: /eeoc[_-]?veteran/i, fieldType: "eeo_veteran" /* EeoVeteran */ },
+    { pattern: /compliance[_-]section[_-]veteran/i, fieldType: "eeo_veteran" /* EeoVeteran */ },
+    { pattern: /(?:^|[_-])disability[_-]status(?:[_-]|$)/i, fieldType: "eeo_disability" /* EeoDisability */ },
+    { pattern: /eeoc[_-]?disability/i, fieldType: "eeo_disability" /* EeoDisability */ },
+    { pattern: /compliance[_-]section[_-]disability/i, fieldType: "eeo_disability" /* EeoDisability */ }
+  ];
   var ACCEPT_THRESHOLD = 0.9;
   var REVIEW_THRESHOLD = 0.5;
   var MARGIN_DIVISOR = 0.35;
@@ -1435,6 +1552,28 @@
       );
     }
     const { topType, topScore, secondScore } = getTopTwoScoredTypes(typeScores);
+    const idValues = signals["id" /* Id */] ?? [];
+    for (const idValue of idValues) {
+      for (const eeoPattern of EEO_ID_PATTERNS) {
+        if (eeoPattern.pattern.test(idValue)) {
+          return {
+            fieldType: eeoPattern.fieldType,
+            confidence: 0.95,
+            status: "resolved" /* Resolved */,
+            evidence: [
+              ...evidence,
+              {
+                signal: "id" /* Id */,
+                rawValue: idValue,
+                matchedType: eeoPattern.fieldType,
+                weight: 1
+              }
+            ],
+            typeScores
+          };
+        }
+      }
+    }
     const conflictPenalty = hasStrongConflict(evidence) ? CONFLICT_PENALTY : 0;
     const genericPenalty = hasGenericOnlySignals(signals) ? GENERIC_TEXT_PENALTY : 0;
     let adjustedTopScore = Math.max(
@@ -1452,6 +1591,13 @@
     }
     if (topType === "country" /* Country */ && hasStrongCountrySignal(signals)) {
       adjustedTopScore = Math.max(adjustedTopScore, 0.95);
+    }
+    if (adjustedTopScore > 0 && adjustedTopScore < ACCEPT_THRESHOLD && secondScore === 0 && evidence.length > 0) {
+      const distinctSignalSources = new Set(evidence.map((e) => e.signal));
+      const distinctMatchedTypes = new Set(evidence.map((e) => e.matchedType));
+      if (distinctSignalSources.size <= 2 && distinctMatchedTypes.size === 1) {
+        adjustedTopScore = Math.max(adjustedTopScore, 0.92);
+      }
     }
     const absScore = clamp(adjustedTopScore, 0, 1);
     const marginScore = clamp(
@@ -1493,7 +1639,7 @@
       signals[signalType].push(trimmedValue);
     }
   };
-  var CONTEXT_SIGNAL_MAX_DEPTH = 4;
+  var CONTEXT_SIGNAL_MAX_DEPTH = 6;
   var CONTEXT_SIGNAL_MAX_LENGTH = 140;
   var CONTEXT_SIGNAL_MIN_LENGTH = 2;
   var INTERACTIVE_CONTEXT_SELECTOR = [
@@ -1539,6 +1685,18 @@
         }
       }
       current = current.parentElement;
+    }
+    const parent = field.element.parentElement;
+    if (parent instanceof HTMLElement && isContextSignalCandidate(parent)) {
+      const controlsInParent = parent.querySelectorAll(
+        INTERACTIVE_CONTEXT_SELECTOR
+      );
+      if (controlsInParent.length === 1) {
+        const parentText = toContextSignalText(parent);
+        if (parentText) {
+          addUniqueSignal(signals, "label_wrap" /* LabelWrap */, parentText);
+        }
+      }
     }
   };
   var isLabelableElement = (element) => element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement || element instanceof HTMLSelectElement;
@@ -1638,7 +1796,7 @@
       if (field.controlKind !== "file" /* File */) {
         return scored;
       }
-      if (scored.fieldType !== "resume" /* Resume */) {
+      if (scored.fieldType !== "resume" /* Resume */ && scored.fieldType !== "cover_letter" /* CoverLetter */) {
         return {
           ...scored,
           fieldType: "unknown" /* Unknown */,
@@ -2361,6 +2519,16 @@
     ["github" /* GitHub */]: "GitHub",
     ["leetcode" /* LeetCode */]: "LeetCode",
     ["website" /* Website */]: "Website",
+    ["work_authorization" /* WorkAuthorization */]: "Work Authorization",
+    ["referral_source" /* ReferralSource */]: "Referral Source",
+    ["relocation" /* Relocation */]: "Relocation",
+    ["pronouns" /* Pronouns */]: "Pronouns",
+    ["cover_letter" /* CoverLetter */]: "Cover Letter",
+    ["preferred_name" /* PreferredName */]: "Preferred Name",
+    ["eeo_gender" /* EeoGender */]: "EEO Gender",
+    ["eeo_race" /* EeoRace */]: "EEO Race/Ethnicity",
+    ["eeo_veteran" /* EeoVeteran */]: "EEO Veteran Status",
+    ["eeo_disability" /* EeoDisability */]: "EEO Disability Status",
     ["unknown" /* Unknown */]: "Unknown"
   };
   var getFieldTypeLabel = (fieldType) => FIELD_TYPE_LABELS[fieldType] ?? "Unknown";

@@ -89,7 +89,16 @@ export const DEFAULT_AUTOFILL_PROFILE: AutofillProfile = {
   [FieldType.LinkedIn]: "https://www.linkedin.com/in/asamad35/",
   [FieldType.GitHub]: "https://github.com/asamad35",
   [FieldType.LeetCode]: "https://leetcode.com/user5730HH/",
-  [FieldType.Website]: "https://asamad.vercel.app/"
+  [FieldType.Website]: "https://asamad.vercel.app/",
+  [FieldType.WorkAuthorization]: "Yes",
+  [FieldType.ReferralSource]: "LinkedIn",
+  [FieldType.Relocation]: "Yes",
+  [FieldType.Pronouns]: "He/Him",
+  [FieldType.PreferredName]: "Abdus",
+  [FieldType.EeoGender]: "Decline to self-identify",
+  [FieldType.EeoRace]: "Decline to self-identify",
+  [FieldType.EeoVeteran]: "I am not a protected veteran",
+  [FieldType.EeoDisability]: "I don't wish to answer"
 }
 
 const isObject = (value: unknown): value is Record<string, unknown> =>

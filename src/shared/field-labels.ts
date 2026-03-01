@@ -33,6 +33,16 @@ const FIELD_TYPE_LABELS: Record<FieldType, string> = {
   [FieldType.GitHub]: "GitHub",
   [FieldType.LeetCode]: "LeetCode",
   [FieldType.Website]: "Website",
+  [FieldType.WorkAuthorization]: "Work Authorization",
+  [FieldType.ReferralSource]: "Referral Source",
+  [FieldType.Relocation]: "Relocation",
+  [FieldType.Pronouns]: "Pronouns",
+  [FieldType.CoverLetter]: "Cover Letter",
+  [FieldType.PreferredName]: "Preferred Name",
+  [FieldType.EeoGender]: "EEO Gender",
+  [FieldType.EeoRace]: "EEO Race/Ethnicity",
+  [FieldType.EeoVeteran]: "EEO Veteran Status",
+  [FieldType.EeoDisability]: "EEO Disability Status",
   [FieldType.Unknown]: "Unknown"
 }
 

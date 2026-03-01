@@ -37,10 +37,23 @@
     "permissions": [
       "activeTab",
       "storage",
-      "webNavigation"
+      "webNavigation",
+      "tabs",
+      "scripting",
+      "cookies",
+      "downloads",
+      "notifications",
+      "identity",
+      "contextMenus",
+      "alarms",
+      "clipboardRead",
+      "clipboardWrite",
+      "management",
+      "unlimitedStorage"
     ],
     "host_permissions": [
-      "https://*/*"
+      "https://*/*",
+      "http://*/*"
     ]
   }
 }

@@ -41,7 +41,7 @@ const addUniqueSignal = (
   }
 }
 
-const CONTEXT_SIGNAL_MAX_DEPTH = 4
+const CONTEXT_SIGNAL_MAX_DEPTH = 6
 const CONTEXT_SIGNAL_MAX_LENGTH = 140
 const CONTEXT_SIGNAL_MIN_LENGTH = 2
 
@@ -114,6 +114,23 @@ const extractAdjacentContextLabels = (
     }
 
     current = current.parentElement
+  }
+
+  // Check if immediate parent has only one form control — its text is likely our label
+  const parent = field.element.parentElement
+  if (
+    parent instanceof HTMLElement &&
+    isContextSignalCandidate(parent)
+  ) {
+    const controlsInParent = parent.querySelectorAll(
+      INTERACTIVE_CONTEXT_SELECTOR
+    )
+    if (controlsInParent.length === 1) {
+      const parentText = toContextSignalText(parent)
+      if (parentText) {
+        addUniqueSignal(signals, SignalType.LabelWrap, parentText)
+      }
+    }
   }
 }
 
@@ -267,7 +284,7 @@ export const evaluateFieldWithLayer1 = (
       return scored
     }
 
-    if (scored.fieldType !== FieldType.Resume) {
+    if (scored.fieldType !== FieldType.Resume && scored.fieldType !== FieldType.CoverLetter) {
       return {
         ...scored,
         fieldType: FieldType.Unknown,
