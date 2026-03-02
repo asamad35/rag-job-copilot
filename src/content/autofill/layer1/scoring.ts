@@ -16,6 +16,7 @@ import {
   createBaseTypeScores,
   getTopTwoScoredTypes
 } from "~src/content/autofill/scoring-utils"
+import { normalizeText } from "~src/content/autofill/dom-utils"
 
 const EEO_ID_PATTERNS: Array<{ pattern: RegExp; fieldType: FieldType }> = [
   { pattern: /eeoc[_-]?gender/i, fieldType: FieldType.EeoGender },
@@ -77,13 +78,6 @@ const FULL_NAME_LABEL_HINTS = new Set([
   "candidate name"
 ])
 
-const normalizeHintText = (value: string): string =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim()
-    .replace(/\s+/g, " ")
-
 const hasPatternSignalMatch = (
   values: string[],
   patterns: readonly RegExp[]
@@ -102,7 +96,7 @@ const hasStrongFirstNameSignal = (signals: ExtractedSignals): boolean => {
   }
 
   const normalizedPlaceholders = (signals[SignalType.Placeholder] ?? []).map(
-    normalizeHintText
+    normalizeText
   )
 
   const hasFirstPlaceholder = normalizedPlaceholders.some((placeholder) =>
@@ -124,7 +118,7 @@ const hasStrongLastNameSignal = (signals: ExtractedSignals): boolean => {
   }
 
   const normalizedPlaceholders = (signals[SignalType.Placeholder] ?? []).map(
-    normalizeHintText
+    normalizeText
   )
 
   const hasLastPlaceholder = normalizedPlaceholders.some((placeholder) =>
@@ -140,7 +134,7 @@ const hasStrongFullNameSignal = (signals: ExtractedSignals): boolean => {
     ...(signals[SignalType.LabelWrap] ?? []),
     ...(signals[SignalType.AriaLabelledBy] ?? []),
     ...(signals[SignalType.AriaLabel] ?? [])
-  ].map(normalizeHintText)
+  ].map(normalizeText)
 
   if (labelValues.length === 0) {
     return false
@@ -168,7 +162,7 @@ const hasStrongCountrySignal = (signals: ExtractedSignals): boolean => {
     ...(signals[SignalType.AriaLabelledBy] ?? []),
     ...(signals[SignalType.Name] ?? []),
     ...(signals[SignalType.Id] ?? [])
-  ].map(normalizeHintText)
+  ].map(normalizeText)
 
   return hintValues.some(
     (value) => value.includes("country selector") || value === "country"

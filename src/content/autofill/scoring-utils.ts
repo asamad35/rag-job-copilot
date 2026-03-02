@@ -23,17 +23,28 @@ export const createBaseTypeScores = (): Record<FieldType, number> => {
 export const getTopTwoScoredTypes = (
   typeScores: Record<FieldType, number>
 ): RankedFieldTypes => {
-  const sorted = [...FIELD_TYPES]
-    .filter((fieldType) => fieldType !== FieldType.Unknown)
-    .sort((left, right) => typeScores[right] - typeScores[left])
+  let topType: FieldType = FieldType.Unknown
+  let topScore = 0
+  let secondType: FieldType = FieldType.Unknown
+  let secondScore = 0
 
-  const topType = sorted[0] ?? FieldType.Unknown
-  const secondType = sorted[1] ?? FieldType.Unknown
+  for (const fieldType of FIELD_TYPES) {
+    if (fieldType === FieldType.Unknown) {
+      continue
+    }
 
-  return {
-    topType,
-    topScore: typeScores[topType] ?? 0,
-    secondType,
-    secondScore: typeScores[secondType] ?? 0
+    const score = typeScores[fieldType] ?? 0
+
+    if (score > topScore) {
+      secondType = topType
+      secondScore = topScore
+      topType = fieldType
+      topScore = score
+    } else if (score > secondScore) {
+      secondType = fieldType
+      secondScore = score
+    }
   }
+
+  return { topType, topScore, secondType, secondScore }
 }

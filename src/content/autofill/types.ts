@@ -163,62 +163,8 @@ export interface Layer1RunSnapshot {
   fillActions: FillActionResult[]
 }
 
-export const SIGNAL_TYPES: readonly SignalType[] = [
-  SignalType.LabelFor,
-  SignalType.LabelWrap,
-  SignalType.AriaLabelledBy,
-  SignalType.Autocomplete,
-  SignalType.AriaLabel,
-  SignalType.Name,
-  SignalType.Id,
-  SignalType.Placeholder
-]
-
-export const FIELD_TYPES: readonly FieldType[] = [
-  FieldType.FirstName,
-  FieldType.LastName,
-  FieldType.FullName,
-  FieldType.Email,
-  FieldType.Phone,
-  FieldType.AddressLine1,
-  FieldType.AddressLine2,
-  FieldType.City,
-  FieldType.State,
-  FieldType.PostalCode,
-  FieldType.Country,
-  FieldType.Gender,
-  FieldType.Company,
-  FieldType.JobTitle,
-  FieldType.TotalExperience,
-  FieldType.RelevantExperience,
-  FieldType.Skills,
-  FieldType.TechStack,
-  FieldType.ScaleExperience,
-  FieldType.ProfessionalSummary,
-  FieldType.ProjectSummary,
-  FieldType.HighestEducation,
-  FieldType.GraduationYear,
-  FieldType.DateOfBirth,
-  FieldType.CurrentCtc,
-  FieldType.ExpectedCtc,
-  FieldType.NoticePeriod,
-  FieldType.Resume,
-  FieldType.LinkedIn,
-  FieldType.GitHub,
-  FieldType.LeetCode,
-  FieldType.Website,
-  FieldType.WorkAuthorization,
-  FieldType.ReferralSource,
-  FieldType.Relocation,
-  FieldType.Pronouns,
-  FieldType.CoverLetter,
-  FieldType.PreferredName,
-  FieldType.EeoGender,
-  FieldType.EeoRace,
-  FieldType.EeoVeteran,
-  FieldType.EeoDisability,
-  FieldType.Unknown
-]
+export const FIELD_TYPES: readonly FieldType[] =
+  Object.values(FieldType) as FieldType[]
 
 export type ResolutionLayer = "layer1" | "layer2"
 

@@ -1,4 +1,9 @@
 import { FIELD_TYPES, FieldType } from "~src/content/autofill/types"
+import {
+  normalizeText,
+  escapeRegExp,
+  containsWholeToken
+} from "~src/content/autofill/dom-utils"
 
 export interface TextMatch {
   fieldType: FieldType
@@ -653,26 +658,10 @@ const COMBINED_NAME_TERMS = [
   "first last name"
 ]
 
-const escapeRegExp = (value: string): string =>
-  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+export { normalizeText }
 
-export const normalizeText = (rawValue: string): string => {
-  const withWordBoundaries = rawValue
-    .replace(/([a-z])([A-Z])/g, "$1 $2")
-    .replace(/([A-Za-z])(\d)/g, "$1 $2")
-    .replace(/(\d)([A-Za-z])/g, "$1 $2")
-
-  return withWordBoundaries
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim()
-    .replace(/\s+/g, " ")
-}
-
-const containsToken = (normalizedText: string, token: string): boolean => {
-  const pattern = new RegExp(`(^|\\s)${escapeRegExp(token)}(\\s|$)`)
-  return pattern.test(normalizedText)
-}
+const containsToken = (normalizedText: string, token: string): boolean =>
+  containsWholeToken(normalizedText, token)
 
 const toTokenPattern = (token: FieldTypeToken): Required<TokenPattern> => {
   if (typeof token === "string") {
@@ -685,13 +674,10 @@ const toTokenPattern = (token: FieldTypeToken): Required<TokenPattern> => {
   }
 }
 
-const containsPhrase = (normalizedText: string, phrase: string): boolean =>
-  containsToken(normalizedText, phrase)
-
 const containsAnyPhrase = (
   normalizedText: string,
   phrases: readonly string[]
-): boolean => phrases.some((phrase) => containsPhrase(normalizedText, phrase))
+): boolean => phrases.some((phrase) => containsToken(normalizedText, phrase))
 
 const applyContextAdjustments = (
   normalizedText: string,

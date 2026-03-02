@@ -11,11 +11,6 @@ import {
 } from "~src/content/autofill/types"
 import { getFieldTypeLabel } from "~src/shared/field-labels"
 
-const countByStatus = (
-  summary: Layer1RunSummary,
-  status: LayerStatus
-): number => summary.results.filter((result) => result.status === status).length
-
 export const runAutofillPipeline = (
   profile: AutofillProfile,
   options: Layer1RunOptions = {}
@@ -30,18 +25,14 @@ export const runAutofillPipeline = (
   return fillResolvedFields(results, profile).then((fillActions) => {
     const summary: Layer1RunSummary = {
       totalDiscovered: discoveredFields.length,
-      resolved: 0,
-      ambiguous: 0,
-      unresolved: 0,
+      resolved: results.filter((r) => r.status === LayerStatus.Resolved).length,
+      ambiguous: results.filter((r) => r.status === LayerStatus.Ambiguous).length,
+      unresolved: results.filter((r) => r.status === LayerStatus.Unresolved).length,
       filled: fillActions.filter((action) => action.filled).length,
       skipped: fillActions.filter((action) => !action.filled).length,
       results,
       fillActions
     }
-
-    summary.resolved = countByStatus(summary, LayerStatus.Resolved)
-    summary.ambiguous = countByStatus(summary, LayerStatus.Ambiguous)
-    summary.unresolved = countByStatus(summary, LayerStatus.Unresolved)
 
     if (options.debug) {
       console.group("[Autofill Summary]")
@@ -57,8 +48,6 @@ export const runAutofillPipeline = (
     return summary
   })
 }
-
-export const runLayer1Autofill = runAutofillPipeline
 
 export const toLayer1RunSnapshot = (
   summary: Layer1RunSummary
@@ -95,3 +84,4 @@ export const toLayer1RunSnapshot = (
     fillActions: summary.fillActions
   }
 }
+

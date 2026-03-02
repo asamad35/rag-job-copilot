@@ -2,6 +2,7 @@ import {
   ARIA_FIELD_SELECTOR,
   CONTENT_EDITABLE_SELECTOR,
   isElementVisible,
+  normalizeText,
   NATIVE_FIELD_SELECTOR
 } from "~src/content/autofill/dom-utils"
 import {
@@ -43,7 +44,7 @@ const LEGAL_CONSENT_HINT_TERMS = [
   "candidateconsent"
 ]
 
-const isNativeFieldElement = (element: Element): element is FieldElement =>
+const isFieldElement = (element: Element): element is FieldElement =>
   element instanceof HTMLInputElement ||
   element instanceof HTMLTextAreaElement ||
   element instanceof HTMLSelectElement ||
@@ -175,13 +176,6 @@ const classifyControlKind = (element: FieldElement): ControlKind => {
   return ControlKind.Custom
 }
 
-const normalizeContextText = (rawValue: string): string =>
-  rawValue
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim()
-    .replace(/\s+/g, " ")
-
 const contextHasAnyTerm = (
   normalizedContext: string,
   terms: readonly string[]
@@ -192,7 +186,7 @@ const getElementContextText = (element: FieldElement): string => {
     return ""
   }
 
-  return normalizeContextText(
+  return normalizeText(
     [
       element.getAttribute("name") ?? "",
       element.getAttribute("id") ?? "",
@@ -293,7 +287,7 @@ const getFieldCollections = (documentRoot: Document): FieldElement[] => {
   const elements: FieldElement[] = []
 
   const pushElement = (element: Element) => {
-    if (!isNativeFieldElement(element) || seen.has(element)) {
+    if (!isFieldElement(element) || seen.has(element)) {
       return
     }
 

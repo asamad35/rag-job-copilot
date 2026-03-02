@@ -133,24 +133,13 @@ const toAutofillProfile = (value: unknown): AutofillProfile => {
     }
   }
 
-  if (typeof value.date_of_birth === "string") {
-    const normalizedDob = value.date_of_birth.trim()
-    if (normalizedDob) {
-      profile[FieldType.DateOfBirth] = normalizedDob
-    }
-  }
-
-  if (typeof value.dateOfBirth === "string") {
-    const normalizedDob = value.dateOfBirth.trim()
-    if (normalizedDob) {
-      profile[FieldType.DateOfBirth] = normalizedDob
-    }
-  }
-
-  if (typeof value.dob === "string") {
-    const normalizedDob = value.dob.trim()
-    if (normalizedDob) {
-      profile[FieldType.DateOfBirth] = normalizedDob
+  for (const dobKey of ["date_of_birth", "dateOfBirth", "dob"] as const) {
+    const rawDob = value[dobKey]
+    if (typeof rawDob === "string") {
+      const normalizedDob = rawDob.trim()
+      if (normalizedDob) {
+        profile[FieldType.DateOfBirth] = normalizedDob
+      }
     }
   }
 

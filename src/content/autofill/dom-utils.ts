@@ -1,3 +1,24 @@
+export const normalizeText = (rawValue: string): string => {
+  const withWordBoundaries = rawValue
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/([A-Za-z])(\d)/g, "$1 $2")
+    .replace(/(\\d)([A-Za-z])/g, "$1 $2")
+
+  return withWordBoundaries
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ")
+}
+
+export const escapeRegExp = (value: string): string =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+
+export const containsWholeToken = (normalizedText: string, token: string): boolean => {
+  const pattern = new RegExp(`(^|\\s)${escapeRegExp(token)}(\\s|$)`)
+  return pattern.test(normalizedText)
+}
+
 export const NATIVE_FIELD_SELECTOR = "input:not([type='hidden']), textarea, select"
 
 export const ARIA_FIELD_SELECTOR = [
